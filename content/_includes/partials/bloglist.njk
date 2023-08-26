@@ -1,0 +1,8 @@
+<div class="bloglist">
+<ul>
+{% for site in collections.sites %}
+  {% include "partials/bloglist-item.njk" %}
+{% endfor %}
+</ul>
+</div>
+<p><small><a href="{{ siteConfig.author.blog }}">Część treści z mojego blogaska</a> też tu trafia, ale ci ludzie powyżej są fajniejsi niż ja.</small></p>

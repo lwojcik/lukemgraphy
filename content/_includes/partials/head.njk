@@ -1,0 +1,31 @@
+{% set siteTitle = siteConfig.title %}
+
+{%- set pageTitle -%}
+  {%- if pagination.pageNumber > 0 -%}
+    {{ siteTitle }} | Strona {{ pagination.pageNumber + 1 }} z {{ pagination.pages|length }} 
+  {%- elif title -%}
+    {{ title | safe }}
+  {%- else -%}
+    {{ siteTitle }}
+  {%- endif -%}
+{%- endset -%}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ pageTitle }}</title>
+<meta name="description" content="{{ siteConfig.description }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/apple-touch-icon.png">
+<link rel="stylesheet" href="{{ '/css/style.css' | addHash }}">
+<script src="{{ '/js/scripts.js' | addHash }}"></script>
+<meta name="generator" content="{{ siteConfig.generator.name }} v{{ siteConfig.generator.version }}">
+{% favicons 'assets/favicon.svg', appleIconBgColor='#000' %}
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for(let registration of registrations) {
+          registration.unregister();
+      } 
+    });
+  }
+</script>
