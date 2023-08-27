@@ -9,8 +9,8 @@ const {
 
 const fetchFromApi = async (url) => {
   try {
-    const response = await axios.get(`${API_URL}${url}`);
-    return response.data;
+    const { data } = await axios.get(`${API_URL}${url}`);
+    return data;
   } catch (error) {
     throw new Error(error);
   }
