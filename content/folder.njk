@@ -8,12 +8,12 @@ pagination:
 permalink: "/{{ folder.slug }}/index.html"
 ---
 
-hi<br/><br/><br/><br/>
+hi folder view<br/><br/><br/><br/>
 
 {{ folder.name }}<br/><br/><br/>
 
 {% for gallery in folder.galleries %}
-    {{ gallery.name }}<br/>
+    <a href="/{{ folder.slug }}/{{ gallery.slug }}/">{{ gallery.name }}</a><br/>
     {{ gallery.date }}<br/>
-    {{ gallery.slug }}<br/><br/>
+    {{ gallery.cover }}<br/><br/>
 {% endfor %}

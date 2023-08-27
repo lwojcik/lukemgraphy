@@ -10,7 +10,7 @@ module.exports = {
   },
   api: {
     url: "https://api.lukemgraphy.eu",
-    folderEndpoint: "/api.json",
-    galleryEndpoint: "/index.json",
+    foldersEndpoint: "/folders.json",
+    galleriesEndpoint: "/galleries.json",
   },
 };

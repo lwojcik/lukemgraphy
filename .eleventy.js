@@ -10,16 +10,6 @@ const siteConfig = require("./content/_data/siteConfig");
 // const minifyXML = require("./_11ty/helpers/minifyXML");
 // const stripAndTruncateHTML = require("./_11ty/helpers/stripAndTruncateHTML");
 
-// const fetchApiData = async () => {
-//   try {
-//     const folders = await axios.get("https://api.lukemgraphy.eu/api.json");
-//     return response.data.folders;
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//     return [];
-//   }
-// };
-
 module.exports = function (eleventyConfig) {
   // --- Copy assets
 
@@ -45,35 +35,6 @@ module.exports = function (eleventyConfig) {
   );
 
   // --- Collections
-
-  // eleventyConfig.addCollection("folders", async function (collectionApi) {
-  //   try {
-  //   } catch (error) {
-  //     console.log(error);
-  //     throw new Error(error);
-  //   }
-  // });
-
-  // eleventyConfig.addCollection("sites", async function (collectionApi) {
-  //   const sites = collectionApi
-  //     .getFilteredByTag("site")
-  //     .filter((item) => !item.data.disabled)
-  //     .slice()
-  //     .sort((a, b) => a.data.name.localeCompare(b.data.name));
-
-  //   const sitesWithCachedAvatars = await Promise.all(
-  //     sites.map(async (site) => {
-  //       const cachedAvatar = await cacheAvatar({
-  //         url: site.data.avatar,
-  //         name: site.data.name,
-  //       });
-  //       site.data.avatar = cachedAvatar;
-  //       return site;
-  //     })
-  //   );
-
-  //   return sitesWithCachedAvatars;
-  // });
 
   // --- Plugins
 

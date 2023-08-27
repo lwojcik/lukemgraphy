@@ -1,0 +1,22 @@
+---
+layout: page
+pagination:
+    data: galleries
+    size: 1
+    alias: gallery
+    addAllPagesToCollections: true
+permalink: "/{{ gallery.parentFolderSlug }}/{{ gallery.slug }}/index.html"
+---
+
+hi gallery view<br/><br/><br/><br/>
+
+{{ gallery.name }}<br/>
+{{ gallery.date }}<br/><br/><br/>
+
+{% for image in gallery.images %}
+  {{ image.xl }}<br/>
+  {{ image.l }}<br/>
+  {{ image.m }}<br/>
+  {{ image.s }}<br/>
+  {{ image.xs }}<br/><br/>
+{% endfor %}

@@ -1,7 +1,11 @@
 const axios = require("axios");
 const siteConfig = require("../content/_data/siteConfig");
 
-const { url: API_URL, folderEndpoint: FOLDER_ENDPOINT } = siteConfig.api;
+const {
+  url: API_URL,
+  foldersEndpoint: FOLDERS_ENDPOINT,
+  galleriesEndpoint: GALLERIES_ENDPOINT,
+} = siteConfig.api;
 
 const fetchFromApi = async (url) => {
   try {
@@ -11,23 +15,12 @@ const fetchFromApi = async (url) => {
     throw new Error(error);
   }
 };
-const fetchFolderList = async () => {
-  try {
-    return await fetchFromApi(FOLDER_ENDPOINT);
-  } catch (error) {
-    throw new Error(error);
-  }
-};
 
-const fetchFolderInfo = async (folderName) => {
-  try {
-    return await fetchFromApi(folderName);
-  } catch (error) {
-    throw new Error(error);
-  }
-};
+const fetchFolders = () => fetchFromApi(FOLDERS_ENDPOINT);
+
+const fetchGalleries = () => fetchFromApi(GALLERIES_ENDPOINT);
 
 module.exports = {
-  fetchFolderList,
-  fetchFolderInfo,
+  fetchFolders,
+  fetchGalleries,
 };
