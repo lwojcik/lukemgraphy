@@ -4,4 +4,8 @@ eleventyExcludeFromCollections: true
 permalink: /
 ---
 
-index
+index<br/><br/><br/>
+
+{% for folder in folders %}
+<a href="/{{ folder.slug }}/">{{ folder.name }}</a><br/>
+{% endfor %}

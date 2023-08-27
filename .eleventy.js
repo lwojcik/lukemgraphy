@@ -1,14 +1,24 @@
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 // const pluginRss = require("@11ty/eleventy-plugin-rss");
 // const cacheAvatar = require("./_11ty/helpers/cacheAvatar");
-const addHash = require("./_11ty/helpers/addHash");
+// const addHash = require("./_11ty/helpers/addHash");
 // const getFulfilledValues = require("./_11ty/helpers/getFulfilledValues");
 // const readableDate = require("./_11ty/helpers/readableDate");
 // const addRef = require("./_11ty/helpers/addRef");
-const minifyHTML = require("./_11ty/helpers/minifyHTML");
+// const minifyHTML = require("./_11ty/helpers/minifyHTML");
 const siteConfig = require("./content/_data/siteConfig");
-const minifyXML = require("./_11ty/helpers/minifyXML");
+// const minifyXML = require("./_11ty/helpers/minifyXML");
 // const stripAndTruncateHTML = require("./_11ty/helpers/stripAndTruncateHTML");
+
+// const fetchApiData = async () => {
+//   try {
+//     const folders = await axios.get("https://api.lukemgraphy.eu/api.json");
+//     return response.data.folders;
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//     return [];
+//   }
+// };
 
 module.exports = function (eleventyConfig) {
   // --- Copy assets
@@ -27,7 +37,6 @@ module.exports = function (eleventyConfig) {
 
   // --- Filters
 
-  eleventyConfig.addFilter("addHash", addHash);
   // eleventyConfig.addFilter("readableDate", readableDate);
   // eleventyConfig.addFilter("addRef", addRef);
   eleventyConfig.addFilter(
@@ -37,56 +46,8 @@ module.exports = function (eleventyConfig) {
 
   // --- Collections
 
-  // eleventyConfig.addCollection("articles", async function (collectionApi) {
+  // eleventyConfig.addCollection("folders", async function (collectionApi) {
   //   try {
-  //     const extractor = await feedExtractor;
-  //     const blogs = collectionApi
-  //       .getFilteredByTag("site")
-  //       .filter((item) => !item.data.disabled);
-
-  //     const allSiteFeeds = blogs.map(async (blog) => {
-  //       const { data } = blog;
-  //       const { name, url, avatar, feed } = data;
-
-  //       const feedContent = await extractor.extract(feed, {
-  //         descriptionMaxLen: siteConfig.maxPostLength,
-  //         headers: {
-  //           "user-agent": siteConfig.userAgent,
-  //         },
-  //         getExtraEntryFields: (item) => {
-  //           if (!item.description) {
-  //             return {
-  //               description: stripAndTruncateHTML(
-  //                 item.content["#text"],
-  //                 siteConfig.maxPostLength
-  //               ),
-  //             };
-  //           }
-  //         },
-  //       });
-
-  //       const feedEntries = feedContent.entries
-  //         .slice(0, siteConfig.maxItemsPerFeed)
-  //         .map((entry) => ({
-  //           ...entry,
-  //           avatar,
-  //           author: {
-  //             name,
-  //             url,
-  //           },
-  //         }))
-  //         .sort((a, b) => new Date(b.published) - new Date(a.published));
-
-  //       return feedEntries;
-  //     });
-
-  //     const allArticles = await getFulfilledValues(allSiteFeeds);
-
-  //     const sortedItems = allArticles
-  //       .flat()
-  //       .sort((a, b) => new Date(b.published) - new Date(a.published));
-
-  //     return sortedItems;
   //   } catch (error) {
   //     console.log(error);
   //     throw new Error(error);
@@ -134,13 +95,17 @@ module.exports = function (eleventyConfig) {
 
   // --- Transforms
 
-  eleventyConfig.addTransform("minifyHTML", minifyHTML);
-  eleventyConfig.addTransform("minifyXML", minifyXML);
+  // eleventyConfig.addTransform("minifyHTML", minifyHTML);
+  // eleventyConfig.addTransform("minifyXML", minifyXML);
 
   return {
     dir: {
       input: "content",
+      includes: "_includes",
+      data: "_data",
+      output: "_site",
     },
+    passthroughFileCopy: true,
     templateFormats: ["md", "njk"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",

@@ -1,0 +1,19 @@
+---
+layout: page
+pagination:
+    data: folders
+    size: 1
+    alias: folder
+    addAllPagesToCollections: true
+permalink: "/{{ folder.slug }}/index.html"
+---
+
+hi<br/><br/><br/><br/>
+
+{{ folder.name }}<br/><br/><br/>
+
+{% for gallery in folder.galleries %}
+    {{ gallery.name }}<br/>
+    {{ gallery.date }}<br/>
+    {{ gallery.slug }}<br/><br/>
+{% endfor %}

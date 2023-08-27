@@ -8,4 +8,9 @@ module.exports = {
     name: "Eleventy",
     version: packageJson.dependencies["@11ty/eleventy"].replace("^", ""),
   },
+  api: {
+    url: "https://api.lukemgraphy.eu",
+    folderEndpoint: "/api.json",
+    galleryEndpoint: "/index.json",
+  },
 };
