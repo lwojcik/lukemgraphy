@@ -13,4 +13,5 @@ module.exports = {
     foldersEndpoint: "/folders.json",
     galleriesEndpoint: "/galleries.json",
   },
+  imageAssetPath: "/assets/images",
 };
