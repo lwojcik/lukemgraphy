@@ -4,20 +4,17 @@ const fetchFoldersFromApi = async () => {
   try {
     const { folders } = await api.fetchFolderList();
 
-    const foldersWithGalleries = await Promise.all(
-      folders.map(async (folder) => {
-        console.log(folder.url);
-        const { galleries } = await api.fetchFolderInfo(folder.url);
+    return await Promise.all(
+      folders.map(async ({ name, slug, url }) => {
+        const { galleries } = await api.fetchFolderInfo(url);
 
         return {
-          name: folder.name,
-          slug: folder.slug,
+          name,
+          slug,
           galleries,
         };
       })
     );
-
-    return foldersWithGalleries;
   } catch (error) {
     throw new Error(error);
   }
