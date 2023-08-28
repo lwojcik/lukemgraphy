@@ -11,10 +11,11 @@ const fetchImagesFromApi = async () => {
       )
     );
 
-    return {
-      ...galleryCovers,
-      ...images,
-    };
+    const allImages = [...galleryCovers, ...images];
+
+    console.log(allImages);
+
+    return allImages;
   } catch (error) {
     throw new Error(error);
   }

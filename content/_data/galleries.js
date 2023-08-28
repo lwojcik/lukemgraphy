@@ -10,6 +10,7 @@ const fetchGalleriesFromApi = async () => {
 
     return galleries.map((gallery) => ({
       ...gallery,
+      cover: path.join(IMAGE_ASSET_PATH, gallery.cover),
       images: gallery.images.map((image) =>
         Object.keys(image).reduce(
           (accumulator, imageVariant) => ({
