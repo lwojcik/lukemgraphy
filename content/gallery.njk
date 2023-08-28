@@ -14,9 +14,5 @@ hi gallery view<br/><br/><br/><br/>
 {{ gallery.date }}<br/><br/><br/>
 
 {% for image in gallery.images %}
-  {{ image.xl }}<br/>
-  {{ image.l }}<br/>
-  {{ image.m }}<br/>
-  {{ image.s }}<br/>
-  {{ image.xs }}<br/><br/>
+  <img src="{{ image.xs }}" alt="" /><br/><br/>
 {% endfor %}

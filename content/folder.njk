@@ -15,5 +15,5 @@ hi folder view<br/><br/><br/><br/>
 {% for gallery in folder.galleries %}
     <a href="/{{ folder.slug }}/{{ gallery.slug }}/">{{ gallery.name }}</a><br/>
     {{ gallery.date }}<br/>
-    {{ gallery.cover }}<br/><br/>
+    <img src="{{ gallery.cover }}" alt="" /><br/><br/>
 {% endfor %}

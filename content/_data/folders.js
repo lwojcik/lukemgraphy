@@ -7,7 +7,6 @@ const { imageAssetPath: IMAGE_ASSET_PATH } = siteConfig;
 const fetchFoldersFromApi = async () => {
   try {
     const { folders } = await api.fetchFolders();
-
     return folders.map((folder) => ({
       ...folder,
       galleries: folder.galleries.map((gallery) => ({

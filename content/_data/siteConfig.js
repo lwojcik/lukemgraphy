@@ -12,6 +12,8 @@ module.exports = {
     url: "https://api.lukemgraphy.eu",
     foldersEndpoint: "/folders.json",
     galleriesEndpoint: "/galleries.json",
+    localCacheDuration: "7d",
+    downloadInterval: 0,
   },
-  imageAssetPath: "/assets/images",
+  imageAssetPath: "/images",
 };
