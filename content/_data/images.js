@@ -1,17 +1,26 @@
-// const api = require("../../_11ty/api");
+const path = require("path");
+const fetchGalleriesFromApi = require("./galleries");
+const siteConfig = require("../_data/siteConfig");
 
-// const fetchImagesFromApi = async () => {
-//   try {
-//     const { galleries } = await api.fetchGalleries();
-//     const images = galleries.map(({ images }) => {
-//       return {
-//         gallery,
-//         images,
-//       };
-//     });
-//   } catch (error) {
-//     throw new Error(error);
-//   }
-// };
+const fetchImagesFromApi = async () => {
+  try {
+    const galleries = await fetchGalleriesFromApi();
 
-// module.exports = fetchImagesFromApi;
+    const galleryCovers = galleries.map(({ cover }) => cover);
+
+    const images = galleries.flatMap(({ images }) =>
+      images.flatMap((image) =>
+        Object.keys(image).flatMap((imageKey) => image[imageKey])
+      )
+    );
+
+    return {
+      ...galleryCovers,
+      ...images,
+    };
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = fetchImagesFromApi;
