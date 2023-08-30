@@ -4,6 +4,10 @@ module.exports = {
   title: "LukemGraphy",
   url: "https://lukemgraphy.eu",
   startYear: 2017,
+  author: {
+    name: "Łukasz Wójcik",
+    url: "https://lukaszwojcik.net/",
+  },
   generator: {
     name: "Eleventy",
     version: packageJson.dependencies["@11ty/eleventy"].replace("^", ""),

@@ -4,13 +4,14 @@ const siteConfig = require("./siteConfig");
 
 const { imageAssetPath: IMAGE_ASSET_PATH } = siteConfig;
 
-const fetchGalleriesFromApi = async () => {
+const fetchGalleryDataFromApi = async () => {
   try {
     const { galleries: galleriesFromApi } = await api.fetchGalleries();
 
     const galleries = galleriesFromApi.map((gallery) => ({
       ...gallery,
       cover: path.join(IMAGE_ASSET_PATH, gallery.cover),
+      link: `/${gallery.parent.folder.slug}/${gallery.slug}/`,
       images: gallery.images.map(({ name, variants }) => ({
         name,
         variants: Object.keys(variants).reduce(
@@ -32,6 +33,7 @@ const fetchGalleriesFromApi = async () => {
       }) =>
         images.map(({ name, variants }) => ({
           name,
+          link: `/${galleryParentFolder.slug}/${parentGallerySlug}/${name}/`,
           variants,
           parent: {
             ...galleryParentFolder,
@@ -52,4 +54,4 @@ const fetchGalleriesFromApi = async () => {
   }
 };
 
-module.exports = fetchGalleriesFromApi;
+module.exports = fetchGalleryDataFromApi;
