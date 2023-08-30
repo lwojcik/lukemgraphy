@@ -5,13 +5,13 @@ pagination:
     size: 1
     alias: image
     addAllPagesToCollections: true
-permalink: "/{{ image.parentFolderSlug }}/{{ image.parentGallerySlug }}/{{ image.slug }}/index.html"
+permalink: "/{{ image.parent.folder.slug }}/{{ image.parent.gallery.slug }}/{{ image.name }}/index.html"
 eleventyComputed:
-  title: "{{ gallery.name }}"
+  title: "{{ image.name }} - {{ image.parent.gallery.name }}"
 ---
 
-hi image view<br/><br/><br/><br/>
+hi single image view<br/><br/><br/><br/>
 
-{{ image.name }}<br/>
+Breadcrumb: {{ image.parent.folder.name }} -> {{ image.parent.gallery.name }} -> {{ image.name }}<br/><br/><br/>
 
-<img width="600" src="{{ image.o }}" alt="" /><br/><br/>
+<img width="600" src="{{ image.variants.o }}" alt="" /><br/><br/>

@@ -5,16 +5,20 @@ pagination:
     size: 1
     alias: gallery
     addAllPagesToCollections: true
-permalink: "/{{ gallery.parentFolderSlug }}/{{ gallery.slug }}/index.html"
+permalink: "/{{ gallery.parent.folder.slug }}/{{ gallery.slug }}/index.html"
 eleventyComputed:
   title: "{{ gallery.name }}"
 ---
 
 hi gallery view<br/><br/><br/><br/>
 
+Breadcrumb: {{ gallery.parent.folder.name }} -> {{ gallery.name }}<br/><br/>
+
 {{ gallery.name }}<br/>
 {{ gallery.date }}<br/><br/><br/>
 
 {% for image in gallery.images %}
-  <img width="600" src="{{ image.o }}" alt="" /><br/><br/>
+<a href="/{{ gallery.parent.folder.slug }}/{{ gallery.slug }}/{{ image.name }}/">
+  <img width="600" src="{{ image.variants.o }}" alt="" />
+  </a><br/><br/>
 {% endfor %}

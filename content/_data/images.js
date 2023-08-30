@@ -14,8 +14,8 @@ const fetchImagesFromApi = async () => {
     const galleryCovers = galleries.map(({ cover }) => cover);
 
     const images = galleries.flatMap(({ images }) =>
-      images.flatMap((image) =>
-        Object.keys(image).map((imageKey) => image[imageKey])
+      images.flatMap(({ variants }) =>
+        Object.keys(variants).map((variantKey) => variants[variantKey])
       )
     );
 

@@ -11,6 +11,7 @@
     "watch:sass": "sass --no-source-map --watch ./styles:_site/css --style compressed",
     "build:sass": "sass --no-source-map styles:_site/css --style compressed",
     "clean": "rimraf _site",
+    "predev": "npm run clean",
     "dev": "ELEVENTY_ENV=development npm-run-all build:sass --parallel watch:*",
     "debug": "DEBUG=Eleventy* npm run dev"
   },

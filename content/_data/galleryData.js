@@ -6,42 +6,45 @@ const { imageAssetPath: IMAGE_ASSET_PATH } = siteConfig;
 
 const fetchGalleriesFromApi = async () => {
   try {
-    const { galleries } = await api.fetchGalleries();
+    const { galleries: galleriesFromApi } = await api.fetchGalleries();
 
-    const galleriesWithImages = galleries.map((gallery) => ({
+    const galleries = galleriesFromApi.map((gallery) => ({
       ...gallery,
       cover: path.join(IMAGE_ASSET_PATH, gallery.cover),
-      images: gallery.images.map((image) =>
-        Object.keys(image).reduce(
+      images: gallery.images.map(({ name, variants }) => ({
+        name,
+        variants: Object.keys(variants).reduce(
           (accumulator, imageVariant) => ({
             ...accumulator,
-            [imageVariant]: path.join(IMAGE_ASSET_PATH, image[imageVariant]),
+            [imageVariant]: path.join(IMAGE_ASSET_PATH, variants[imageVariant]),
           }),
           {}
-        )
-      ),
+        ),
+      })),
     }));
 
-    const images = galleriesWithImages.flatMap((gallery) => {
-      const imageData = gallery.images.map((image) => {
-        console.log(name);
-        return {
-          image: {
-            ...image,
-            name,
+    const images = galleries.flatMap(
+      ({
+        name: parentGalleryName,
+        slug: parentGallerySlug,
+        parent: galleryParentFolder,
+        images,
+      }) =>
+        images.map(({ name, variants }) => ({
+          name,
+          variants,
+          parent: {
+            ...galleryParentFolder,
+            gallery: {
+              name: parentGalleryName,
+              slug: parentGallerySlug,
+            },
           },
-          parentGallerySlug: gallery.slug,
-          parentFolderSlug: gallery.parentFolderSlug,
-        };
-      });
-
-      console.log(imageData);
-
-      return imageData;
-    });
+        }))
+    );
 
     return {
-      galleries: galleriesWithImages,
+      galleries,
       images,
     };
   } catch (error) {

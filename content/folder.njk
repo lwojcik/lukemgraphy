@@ -15,7 +15,8 @@ hi folder view<br/><br/><br/><br/>
 {{ folder.name }}<br/><br/><br/>
 
 {% for gallery in folder.galleries %}
-    <a href="/{{ folder.slug }}/{{ gallery.slug }}/">{{ gallery.name }}</a><br/>
+    <a href="/{{ folder.slug }}/{{ gallery.slug }}/">{{ gallery.name }}<br/>
     {{ gallery.date }}<br/>
-    <img src="{{ gallery.cover }}" alt="" /><br/><br/>
+    <img src="{{ gallery.cover }}" alt="" />
+    </a><br/><br/>
 {% endfor %}
