@@ -9,8 +9,10 @@ const fetchFoldersFromApi = async () => {
     const { folders } = await api.fetchFolders();
     return folders.map((folder) => ({
       ...folder,
+      link: path.join("/", folder.slug, "/"),
       galleries: folder.galleries.map((gallery) => ({
         ...gallery,
+        link: path.join("/", folder.slug, gallery.slug, "/"),
         cover: path.join(IMAGE_ASSET_PATH, gallery.cover),
       })),
     }));

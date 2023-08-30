@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
 <id>{{ gallery.link | alwaysProductionUrl }}</id>
 <content type="html">
   <![CDATA[
-    <img src="/{{ gallery.images[0].variants.o | alwaysProductionUrl }}" />
+    <img src="{{ gallery.images[0].variants.o | alwaysProductionUrl }}" />
   ]]>
 </content>
 </entry>

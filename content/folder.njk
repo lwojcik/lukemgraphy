@@ -11,11 +11,12 @@ eleventyComputed:
 ---
 
 hi folder view<br/><br/><br/><br/>
-
+{{ folder.link }}<br/>
+{{ folder.slug }}<br/>
 {{ folder.name }}<br/><br/><br/>
 
 {% for gallery in folder.galleries %}
-    <a href="/{{ folder.slug }}/{{ gallery.slug }}/">{{ gallery.name }}<br/>
+    <a href="{{ gallery.link }}">{{ gallery.name }}<br/>
     {{ gallery.date }}<br/>
     <img src="{{ gallery.cover }}" alt="" />
     </a><br/><br/>

@@ -11,7 +11,7 @@ const fetchGalleryDataFromApi = async () => {
     const galleries = galleriesFromApi.map((gallery) => ({
       ...gallery,
       cover: path.join(IMAGE_ASSET_PATH, gallery.cover),
-      link: `/${gallery.parent.folder.slug}/${gallery.slug}/`,
+      link: path.join("/", gallery.parent.folder.slug, gallery.slug, "/"),
       images: gallery.images.map(({ name, variants }) => ({
         name,
         variants: Object.keys(variants).reduce(
@@ -25,21 +25,16 @@ const fetchGalleryDataFromApi = async () => {
     }));
 
     const images = galleries.flatMap(
-      ({
-        name: parentGalleryName,
-        slug: parentGallerySlug,
-        parent: galleryParentFolder,
-        images,
-      }) =>
+      ({ name: galleryName, slug, parent: { folder }, images }) =>
         images.map(({ name, variants }) => ({
           name,
-          link: `/${galleryParentFolder.slug}/${parentGallerySlug}/${name}/`,
+          link: `/${folder.slug}/${slug}/${name}/`,
           variants,
           parent: {
-            ...galleryParentFolder,
+            folder,
             gallery: {
-              name: parentGalleryName,
-              slug: parentGallerySlug,
+              name: galleryName,
+              slug,
             },
           },
         }))

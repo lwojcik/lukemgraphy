@@ -8,14 +8,14 @@ pagination:
 permalink: "/{{ gallery.parent.folder.slug }}/{{ gallery.slug }}/index.html"
 eleventyComputed:
   title: "{{ gallery.name }}"
-  link: "/{{ gallery.parent.folder.slug }}/{{ gallery.slug }}/"
 ---
 
 hi gallery view<br/><br/><br/><br/>
 
 Breadcrumb: {{ gallery.parent.folder.name }} -> {{ gallery.name }}<br/><br/>
 
-{{ gallery.name }}<br/>
+{{ gallery.name }}<br/><br/>
+{{ gallery.link }}<br/><br/>
 {{ gallery.date }}<br/><br/><br/>
 
 {% for image in gallery.images %}
