@@ -1,9 +1,7 @@
 {% set siteTitle = siteConfig.title %}
 
 {%- set pageTitle -%}
-  {%- if pagination.pageNumber > 0 -%}
-    {{ siteTitle }} | Strona {{ pagination.pageNumber + 1 }} z {{ pagination.pages|length }} 
-  {%- elif title -%}
+  {%- if title -%}
     {{ title | safe }}
   {%- else -%}
     {{ siteTitle }}
@@ -19,13 +17,4 @@
 {# <link rel="stylesheet" href="{{ '/css/style.css' }}"> #}
 {# <script src="{{ '/js/scripts.js' }}"></script> #}
 <meta name="generator" content="{{ siteConfig.generator.name }} v{{ siteConfig.generator.version }}">
-{% favicons 'assets/favicon.svg', appleIconBgColor='#000' %}
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-      for(let registration of registrations) {
-          registration.unregister();
-      } 
-    });
-  }
-</script>
+{% favicons 'assets/logo.svg', appleIconBgColor='#000' %}

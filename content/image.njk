@@ -1,0 +1,17 @@
+---
+layout: page
+pagination:
+    data: galleryData.images
+    size: 1
+    alias: image
+    addAllPagesToCollections: true
+permalink: "/{{ image.parentFolderSlug }}/{{ image.parentGallerySlug }}/{{ image.slug }}/index.html"
+eleventyComputed:
+  title: "{{ gallery.name }}"
+---
+
+hi image view<br/><br/><br/><br/>
+
+{{ image.name }}<br/>
+
+<img width="600" src="{{ image.o }}" alt="" /><br/><br/>

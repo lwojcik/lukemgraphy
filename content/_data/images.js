@@ -1,6 +1,6 @@
 const siteConfig = require("../_data/siteConfig");
 const { fetchImage } = require("../../_11ty/api");
-const fetchGalleriesFromApi = require("./galleries");
+const fetchGalleriesFromApi = require("./galleryData");
 const { existsSync, mkdirSync, writeFileSync } = require("fs");
 const path = require("path");
 
@@ -10,7 +10,7 @@ const { url: IMAGE_API_URL, downloadIntervalMs: DOWNLOAD_INTERVAL_MS } =
 
 const fetchImagesFromApi = async () => {
   try {
-    const galleries = await fetchGalleriesFromApi();
+    const { galleries } = await fetchGalleriesFromApi();
     const galleryCovers = galleries.map(({ cover }) => cover);
 
     const images = galleries.flatMap(({ images }) =>

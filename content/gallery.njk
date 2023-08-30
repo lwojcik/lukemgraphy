@@ -1,11 +1,13 @@
 ---
 layout: page
 pagination:
-    data: galleries
+    data: galleryData.galleries
     size: 1
     alias: gallery
     addAllPagesToCollections: true
 permalink: "/{{ gallery.parentFolderSlug }}/{{ gallery.slug }}/index.html"
+eleventyComputed:
+  title: "{{ gallery.name }}"
 ---
 
 hi gallery view<br/><br/><br/><br/>
@@ -14,5 +16,5 @@ hi gallery view<br/><br/><br/><br/>
 {{ gallery.date }}<br/><br/><br/>
 
 {% for image in gallery.images %}
-  <img src="{{ image.o }}" alt="" /><br/><br/>
+  <img width="600" src="{{ image.o }}" alt="" /><br/><br/>
 {% endfor %}

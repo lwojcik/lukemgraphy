@@ -6,6 +6,8 @@ pagination:
     alias: folder
     addAllPagesToCollections: true
 permalink: "/{{ folder.slug }}/index.html"
+eleventyComputed:
+  title: "{{ folder.name }}"
 ---
 
 hi folder view<br/><br/><br/><br/>
