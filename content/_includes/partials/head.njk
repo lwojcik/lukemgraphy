@@ -2,7 +2,7 @@
 
 {%- set pageTitle -%}
   {%- if title -%}
-    {{ title | safe }}
+    {{ title | safe }} - {{ siteTitle }}
   {%- else -%}
     {{ siteTitle }}
   {%- endif -%}
