@@ -17,4 +17,11 @@ hi single image view<br/><br/><br/><br/>
 
 Breadcrumb: {{ image.parent.folder.name }} -> {{ image.parent.gallery.name }} -> {{ image.name }}<br/><br/><br/>
 
+{% if image.nextImage %}
+Next Image: <a href="{{ image.nextImage.link }}">{{ image.nextImage.name }}</a><br/><br/>
+{% endif %}
+{% if image.previousImage %}
+Previous Image: <a href="{{ image.previousImage.link }}">{{ image.previousImage.name }}</a><br/><br/>
+{% endif %}
+
 <img width="600" src="{{ image.variants.o }}" alt="" /><br/><br/>
