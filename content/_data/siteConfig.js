@@ -17,7 +17,7 @@ module.exports = {
     foldersEndpoint: "/folders.json",
     galleriesEndpoint: "/galleries.json",
     localCacheDuration: "7d",
-    downloadInterval: 0,
+    downloadIntervalMs: 0,
   },
   imageAssetPath: "/images",
 };

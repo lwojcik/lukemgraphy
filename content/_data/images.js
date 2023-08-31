@@ -8,6 +8,8 @@ const { imageAssetPath: IMAGE_ASSET_PATH } = siteConfig;
 const { url: IMAGE_API_URL, downloadIntervalMs: DOWNLOAD_INTERVAL_MS } =
   siteConfig.api;
 
+const BUILD_PATH = path.join(__dirname, "../../_site");
+
 module.exports = async () => {
   try {
     const { galleries } = await fetchGalleryDataFromApi();
@@ -26,7 +28,7 @@ module.exports = async () => {
       const sourceImage = image.replace(IMAGE_ASSET_PATH, "");
 
       const relativeImagePath = image.replace(IMAGE_API_URL, "");
-      const imagePath = path.join(__dirname, "../../_site", relativeImagePath);
+      const imagePath = path.join(BUILD_PATH, relativeImagePath);
 
       try {
         const imageBuffer = await fetchImage(sourceImage);
