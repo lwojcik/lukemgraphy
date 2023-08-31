@@ -6,6 +6,6 @@ permalink: /
 
 index<br/><br/><br/>
 
-{% for folder in folders %}
+{% for folder in apiData.folders %}
 <a href="{{ folder.link }}">{{ folder.name }}</a><br/>
 {% endfor %}

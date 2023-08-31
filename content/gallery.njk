@@ -1,7 +1,7 @@
 ---
 layout: page
 pagination:
-    data: galleryData.galleries
+    data: apiData.galleries
     size: 1
     alias: gallery
     addAllPagesToCollections: true
@@ -18,15 +18,16 @@ Breadcrumb: {{ gallery.parent.folder.name }} -> {{ gallery.name }}<br/><br/>
 {{ gallery.link }}<br/><br/>
 {{ gallery.date }}<br/><br/><br/>
 
-{% if gallery.olderGallery %}
-Older Gallery: <a href="{{ gallery.olderGallery.link }}">{{ gallery.olderGallery.name }}</a><br/><br/>
+{% if gallery.older %}
+Older Gallery: <a href="{{ gallery.older.link }}">{{ gallery.older.name }}</a><br/><br/>
 {% endif %}
-{% if gallery.newerGallery %}
-Newer Gallery: <a href="{{ gallery.newerGallery.link }}">{{ gallery.newerGallery.name }}</a><br/><br/>
+{% if gallery.newer %}
+Newer Gallery: <a href="{{ gallery.newer.link }}">{{ gallery.newer.name }}</a><br/><br/>
 {% endif %}
 
 {% for image in gallery.images %}
-<a href="/{{ gallery.parent.folder.slug }}/{{ gallery.slug }}/{{ image.name }}/">
+<a href="{{ image.link }}">
   <img width="600" src="{{ image.variants.o }}" alt="" />
-  </a><br/><br/>
+</a>
+<br/><br/>
 {% endfor %}

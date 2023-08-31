@@ -1,6 +1,6 @@
 const siteConfig = require("../_data/siteConfig");
 const { fetchImage } = require("../../_11ty/api");
-const fetchGalleryDataFromApi = require("./galleryData");
+const fetchGalleryDataFromApi = require("./apiData");
 const { existsSync, mkdirSync, writeFileSync } = require("fs");
 const path = require("path");
 
@@ -8,7 +8,7 @@ const { imageAssetPath: IMAGE_ASSET_PATH } = siteConfig;
 const { url: IMAGE_API_URL, downloadIntervalMs: DOWNLOAD_INTERVAL_MS } =
   siteConfig.api;
 
-const fetchImagesFromApi = async () => {
+module.exports = async () => {
   try {
     const { galleries } = await fetchGalleryDataFromApi();
     const galleryCovers = galleries.map(({ cover }) => cover);
@@ -47,11 +47,7 @@ const fetchImagesFromApi = async () => {
         console.error(`Error saving image ${image}: ${error.message}`);
       }
     }
-
-    return allImages;
   } catch (error) {
     throw new Error(error);
   }
 };
-
-module.exports = fetchImagesFromApi;
