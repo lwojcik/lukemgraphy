@@ -5,7 +5,7 @@ pagination:
     size: 1
     alias: image
     addAllPagesToCollections: true
-permalink: "/{{ image.parent.folder.slug }}/{{ image.parent.gallery.slug }}/{{ image.name }}/index.html"
+permalink: "{{ image.link }}"
 eleventyComputed:
   title: "{{ image.name }} - {{ image.parent.gallery.name }}"
 ---
