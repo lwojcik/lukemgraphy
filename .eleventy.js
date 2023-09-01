@@ -1,7 +1,8 @@
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
+const { DateTime } = require("luxon");
 // const pluginRss = require("@11ty/eleventy-plugin-rss");
 // const cacheAvatar = require("./_11ty/helpers/cacheAvatar");
-// const addHash = require("./_11ty/helpers/addHash");
+const addHash = require("./_11ty/helpers/addHash");
 // const getFulfilledValues = require("./_11ty/helpers/getFulfilledValues");
 // const readableDate = require("./_11ty/helpers/readableDate");
 // const addRef = require("./_11ty/helpers/addRef");
@@ -27,8 +28,8 @@ module.exports = function (eleventyConfig) {
 
   // --- Filters
 
-  // eleventyConfig.addFilter("readableDate", readableDate);
-  // eleventyConfig.addFilter("addRef", addRef);
+  eleventyConfig.addFilter("addHash", addHash);
+
   eleventyConfig.addFilter(
     "alwaysProductionUrl",
     (path) => new URL(path, siteConfig.url)
@@ -58,6 +59,12 @@ module.exports = function (eleventyConfig) {
 
   // eleventyConfig.addTransform("minifyHTML", minifyHTML);
   // eleventyConfig.addTransform("minifyXML", minifyXML);
+
+  // --- Shortcodes
+
+  eleventyConfig.addShortcode("currentYear", () =>
+    DateTime.local().toFormat("yyyy")
+  );
 
   return {
     dir: {

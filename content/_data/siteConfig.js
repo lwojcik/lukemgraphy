@@ -2,8 +2,9 @@ const packageJson = require("../../package.json");
 
 module.exports = {
   title: "LukemGraphy",
+  description: "photography by Łukasz Wójcik",
   url: "https://lukemgraphy.eu",
-  startYear: 2017,
+  startYear: 2014,
   author: {
     name: "Łukasz Wójcik",
     url: "https://lukaszwojcik.net/",
