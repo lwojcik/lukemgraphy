@@ -1,22 +1,22 @@
 .menu {
-  margin: 4rem 0;
+  margin: 3rem 0;
   padding: 0;
 
   ul {
     list-style: none;
-    margin: 0 0 2rem;
+    margin: 0 0 1rem;
     padding: 0;
   }
 
   li {
-    margin-bottom: 1rem;
     font-weight: 500;
   }
 
   a {
     display: inline-block;
-    width: 100%;
+    width: 80%;
     color: var(--black);
+    padding: 0.5rem 0;
 
     span {
       border-bottom: 2px solid;

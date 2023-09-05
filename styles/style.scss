@@ -40,4 +40,14 @@ a {
     width: 100%;
     padding-left: 0;
   }
+
+  h1 {
+    margin-top: 0;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+
+  p {
+    letter-spacing: 0;
+  }
 }

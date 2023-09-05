@@ -1,8 +1,16 @@
 <menu class="menu">
   <ul>
     {% for item in apiData.folders %}
+      {%- set currentSlug -%}
+        {%- if folder.link -%}
+          {{ folder.link }}
+        {%- endif -%}
+        {%- if gallery.parent.folder.slug -%}
+          /{{ gallery.parent.folder.slug }}/
+        {%- endif -%}
+      {%- endset -%}
       <li>
-        <a href="{{ item.link }}"{% if item.link === folder.link %} class="selected"{% endif %}>
+        <a href="{{ item.link }}"{% if item.link === currentSlug %} class="selected"{% endif %}>
           <span>
             {{ item.name }}
           </span>
