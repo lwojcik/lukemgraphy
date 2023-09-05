@@ -1,0 +1,40 @@
+.menu {
+  margin: 4rem 0;
+  padding: 0;
+
+  ul {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  a {
+    display: inline-block;
+    width: 100%;
+    color: var(--black);
+
+    span {
+      border-bottom: 2px solid;
+      border-color: transparent;
+      transition: border-color 0.1s ease-in-out;
+    }
+
+    &.selected {
+      span {
+        border-color: var(--black);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      span {
+        border-color: var(--pink);
+      }
+    }
+  }
+}

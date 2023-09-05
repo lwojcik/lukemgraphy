@@ -5,6 +5,7 @@ module.exports = {
   description: "photography by Łukasz Wójcik",
   url: "https://lukemgraphy.eu",
   startYear: 2014,
+  language: "en",
   author: {
     name: "Łukasz Wójcik",
     url: "https://lukaszwojcik.net/",

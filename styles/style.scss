@@ -1,18 +1,43 @@
-@import "vendors";
+@import "mixins";
+@import "fonts";
 @import "variables";
+@import "vendors";
 @import "partials";
 
 body {
   font-size: var(--base-size);
   font-family: var(--sans-serif), var(--emoji-font-family);
   line-height: 1.5;
+  letter-spacing: -0.5px;
 }
 
 a {
   text-decoration: none;
   color: var(--link-color);
+  transition: color var(--transition-time);
 
   &:hover {
     color: var(--pink);
+  }
+}
+
+.wrapper {
+  padding: 3rem;
+  display: flex;
+  flex-direction: row;
+
+  @include mobile {
+    padding: 0.5rem;
+    flex-direction: column;
+  }
+}
+
+.content {
+  width: calc(100% - 19rem);
+  padding-left: 19rem;
+
+  @include mobile {
+    width: 100%;
+    padding-left: 0;
   }
 }

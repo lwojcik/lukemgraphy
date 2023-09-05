@@ -1,0 +1,24 @@
+<menu class="menu">
+  <ul>
+    {% for item in apiData.folders %}
+      <li>
+        <a href="{{ item.link }}"{% if item.link === folder.link %} class="selected"{% endif %}>
+          <span>
+            {{ item.name }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+    <li>
+      <a href="/about/"{% if permalink === "/about/" %} class="selected"{% endif %}><span>About</span></a>
+    </li>
+    <li>
+      <a href="/subscribe/"{% if permalink === "/subscribe/" %} class="selected"{% endif %}><span>Subscribe</span></a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <a href="#"><span>Toggle theme</span></a>
+    </li>
+  </ul>
+</menu>

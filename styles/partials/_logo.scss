@@ -1,0 +1,40 @@
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  max-height: 1.5rem;
+  margin: 0 0 2rem;
+  text-transform: uppercase;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 40px;
+
+    .logo-svg-background {
+      fill: transparent;
+    }
+
+    .logo-svg-shape {
+      transition: fill 0.1s;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      .logo-svg-shape {
+        fill: var(--main-color);
+      }
+    }
+  }
+
+  @include mobile {
+    max-height: 1.5rem;
+  }
+}

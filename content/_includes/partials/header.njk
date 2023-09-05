@@ -1,6 +1,6 @@
-<div class="header">
-  <header>
-    {% include "partials/header/logo.njk" %}
-  </header>
-  {% include "partials/header/menu.njk" %}
-</div>
+<header class="header">
+  <a href="/" class="logo">
+    {% include "svg/logo.svg" %}
+    <span class="title">{{ siteConfig.title }}</span>
+  </a>
+</header>

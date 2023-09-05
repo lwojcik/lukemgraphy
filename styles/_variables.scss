@@ -1,6 +1,5 @@
 :root {
-  --serif: Georgia, Times, "Times New Roman", serif;
-  --sans-serif: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --sans-serif: montserrat, Arial, "Helvetica Neue", Helvetica, sans-serif;
   --emoji-font-family: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
     Noto Color Emoji;
   --base-size: 16px;
@@ -11,6 +10,8 @@
   --light-gray: #999;
   --dark-gray: #666;
   --darker-gray: #333;
+  --main-color: var(--pink);
+  --transition-time: 0.2s;
 }
 
 @mixin lightModeColors {

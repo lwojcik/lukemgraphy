@@ -5,4 +5,4 @@ eleventyExcludeFromCollections: true
 permalink: /about/
 ---
 
-Under construction
+About under construction
