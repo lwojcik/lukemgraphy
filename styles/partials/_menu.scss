@@ -15,7 +15,7 @@
   a {
     display: inline-block;
     width: 80%;
-    color: var(--black);
+    color: var(--text-color);
     padding: 0.5rem 0;
 
     span {
@@ -37,4 +37,25 @@
       }
     }
   }
+
+  .text-link {
+    color: var(--text-color);
+    border-bottom: 2px solid;
+    border-color: transparent;
+    transition: all 0.1s ease-in-out;
+    padding: 0.5rem 0 2px;
+
+    &:hover {
+      color: var(--pink);
+      border-color: var(--pink);
+    }
+
+    &:focus {
+      color: var(--pink);
+    }
+  }
+}
+
+.no-js .theme-toggle {
+  display: none;
 }
