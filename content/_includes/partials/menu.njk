@@ -8,6 +8,9 @@
         {%- if gallery.parent.folder.slug -%}
           /{{ gallery.parent.folder.slug }}/
         {%- endif -%}
+        {%- if image.parent.folder.slug -%}
+          /{{ image.parent.folder.slug }}/
+        {%- endif -%}
       {%- endset -%}
       <li>
         <a href="{{ item.link }}"{% if item.link === currentSlug %} class="selected"{% endif %}>
