@@ -11,20 +11,21 @@
   --dark-gray: #666;
   --darker-gray: #333;
   --main-color: var(--pink);
-  --transition-time: 0.2s;
+  --transition-time: 0.1s;
 }
 
 @mixin lightModeColors {
   --background-color: var(--white);
   --text-color: var(--black);
-  --date-color: var(--dark-gray);
-  --pagination-inactive-color: var(--light-gray);
-  --pagination-active-color: var(--black);
+  --menu-expanded-background-color: var(--darker-gray);
+  --menu-expanded-text-color: var(--white);
 }
 
 @mixin darkModeColors {
   --background-color: var(--black);
   --text-color: var(--lighter-gray);
+  --menu-background-color: var(--darker-gray);
+  --menu-expanded-text-color: var(--white);
 }
 
 :root,

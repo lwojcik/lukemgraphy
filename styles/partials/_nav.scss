@@ -1,8 +1,11 @@
 .nav {
-  width: 16rem;
+  width: 22rem;
+  padding: 3rem;
   position: fixed;
 
   @include mobile {
+    padding: 0;
+    min-width: 310px;
     width: 100%;
     position: static;
 

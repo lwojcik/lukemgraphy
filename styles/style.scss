@@ -11,6 +11,10 @@ body {
   color: var(--text-color);
   line-height: 1.5;
   letter-spacing: -0.5px;
+
+  *:focus-visible {
+    outline: 2px dashed var(--pink);
+  }
 }
 
 a,
@@ -41,14 +45,14 @@ a:focus {
   width: 100%;
 
   @include mobile {
-    padding: 0.5rem;
+    padding: 0.75rem;
     flex-direction: column;
   }
 }
 
 .content {
   width: 100%;
-  padding-left: 19rem;
+  padding: 3rem 3rem 3rem 21rem;
 
   h1 {
     margin-top: 0;
@@ -66,6 +70,6 @@ a:focus {
   }
 
   @include mobile {
-    padding-left: 0;
+    padding: 1rem;
   }
 }
