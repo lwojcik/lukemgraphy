@@ -9,6 +9,7 @@
 @include mobile {
   .menu-btn {
     position: absolute;
+    z-index: 10;
     top: 0.6rem;
     right: 1rem;
     display: flex;
@@ -54,8 +55,12 @@
     }
   }
 
-  .menu-checkbox ~ .mobile-menu-wrapper {
+  .mobile-menu-wrapper {
     background: var(--menu-expanded-background-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 0;
     padding: 0;
     transition: height 0.2s;
@@ -68,8 +73,8 @@
 
   .menu-checkbox:checked {
     & ~ .mobile-menu-wrapper {
-      height: 355px;
-      padding: 0.5rem 1rem 0;
+      height: 25.5rem;
+      padding: 3.5rem 1rem 0;
 
       & > * {
         display: block;
