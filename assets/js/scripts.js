@@ -87,10 +87,25 @@ const handleMobileMenu = () => {
   });
 };
 
+const masonry = () => {
+  const masonryLayouts = document.querySelectorAll(".masonry-layout");
+
+  if (masonryLayouts.length > 0) {
+    FlexMasonry.init(".masonry-layout", {
+      responsive: true,
+      breakpointCols: {
+        "min-width: 800px": 3,
+        "min-width: 480px": 2,
+      },
+    });
+  }
+};
+
 window.addEventListener("DOMContentLoaded", () => {
   enableJS();
   detectSystemWideDarkMode();
   detectLocalStorageDarkMode();
   themeSwitcherButton();
   handleMobileMenu();
+  masonry();
 });
