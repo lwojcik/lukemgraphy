@@ -42,4 +42,10 @@
     max-height: 1.5rem;
     margin-bottom: 0cap;
   }
+
+  @media (max-width: 310px) {
+    .title {
+      display: none;
+    }
+  }
 }

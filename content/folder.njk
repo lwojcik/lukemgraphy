@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: base
 pagination:
     data: apiData.folders
     size: 1
@@ -10,14 +10,13 @@ eleventyComputed:
   title: "{{ folder.name }}"
 ---
 
-hi folder view<br/><br/><br/><br/>
-{{ folder.link }}<br/>
-{{ folder.slug }}<br/>
-{{ folder.name }}<br/><br/><br/>
-
+<ul class="gallery-list">
 {% for gallery in folder.galleries %}
-    <a href="{{ gallery.link }}">{{ gallery.name }}<br/>
-    {{ gallery.date }}<br/>
-    <img src="{{ gallery.cover }}" alt="" />
-    </a><br/><br/>
+  <li>
+    <a href="{{ gallery.link }}">
+      <img src="{{ gallery.cover }}" alt="{{ gallery.name }} - cover image" />
+      <p class="name">{{ gallery.name }}</p>
+    </a>
+  </li>
 {% endfor %}
+</ul>

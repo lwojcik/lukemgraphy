@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: base
 pagination:
     data: apiData.galleries
     size: 1
@@ -27,7 +27,7 @@ Newer Gallery: <a href="{{ gallery.newer.link }}">{{ gallery.newer.name }}</a><b
 
 {% for image in gallery.images %}
 <a href="{{ image.link }}">
-  <img width="600" src="{{ image.variants.o }}" alt="" />
+  <img alt="" src="{{ image.variants.o }}" />
 </a>
 <br/><br/>
 {% endfor %}
