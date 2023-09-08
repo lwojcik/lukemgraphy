@@ -10,20 +10,20 @@ eleventyComputed:
   title: "{{ gallery.name }}"
 ---
 
-hi gallery view<br/><br/><br/><br/>
+<div class="breadcrumb">
+<a href="{{ gallery.parent.folder.link }}">{{ gallery.parent.folder.name }}</a> / <a href="{{ gallery.link }}" class="gallery-link">{{ gallery.name }}</a>
+</div>
 
-Breadcrumb: {{ gallery.parent.folder.name }} -> {{ gallery.name }}<br/><br/>
-
-{{ gallery.name }}<br/><br/>
+{# {{ gallery.name }}<br/><br/>
 {{ gallery.link }}<br/><br/>
-{{ gallery.date }}<br/><br/><br/>
+{{ gallery.date }}<br/><br/><br/> #}
 
-{% if gallery.older %}
+{# {% if gallery.older %}
 Older Gallery: <a href="{{ gallery.older.link }}">{{ gallery.older.name }}</a><br/><br/>
 {% endif %}
 {% if gallery.newer %}
 Newer Gallery: <a href="{{ gallery.newer.link }}">{{ gallery.newer.name }}</a><br/><br/>
-{% endif %}
+{% endif %} #}
 
 {% for image in gallery.images %}
 <a href="{{ image.link }}">

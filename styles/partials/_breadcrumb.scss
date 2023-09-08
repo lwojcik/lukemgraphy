@@ -1,0 +1,16 @@
+.breadcrumb {
+  margin-bottom: 3rem;
+
+  a {
+    font-weight: bold;
+
+    &.gallery-link {
+      border-bottom: 2px solid var(--text-color);
+
+      &:hover,
+      &:focus {
+        border-color: var(--pink);
+      }
+    }
+  }
+}
