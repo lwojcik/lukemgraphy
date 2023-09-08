@@ -17,14 +17,14 @@
 @mixin lightModeColors {
   --background-color: var(--white);
   --text-color: var(--black);
-  --menu-expanded-background-color: var(--darker-gray);
+  --menu-expanded-background-color: var(--lighter-gray);
   --menu-expanded-text-color: var(--white);
 }
 
 @mixin darkModeColors {
   --background-color: var(--black);
   --text-color: var(--lighter-gray);
-  --menu-background-color: var(--darker-gray);
+  --menu-expanded-background-color: var(--darker-gray);
   --menu-expanded-text-color: var(--white);
 }
 

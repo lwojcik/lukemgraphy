@@ -7,11 +7,3 @@
     border-bottom: 1px solid;
   }
 }
-
-@include mobile {
-  .footer br {
-    display: inline;
-    content: " ";
-    padding: 0 3px;
-  }
-}

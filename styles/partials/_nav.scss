@@ -10,7 +10,12 @@
     position: static;
 
     .header {
-      max-width: 16rem;
+      padding: 1rem;
+      max-height: 56px;
+
+      a {
+        margin-bottom: 0;
+      }
     }
   }
 }

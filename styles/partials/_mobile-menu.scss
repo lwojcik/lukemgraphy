@@ -7,11 +7,6 @@
 }
 
 @include mobile {
-  .mobile-wrapper {
-    position: relative;
-    padding: 1rem;
-  }
-
   .menu-btn {
     position: absolute;
     top: 0.6rem;
@@ -60,89 +55,28 @@
   }
 
   .menu-checkbox ~ .mobile-menu-wrapper {
-    display: none;
+    background: var(--menu-expanded-background-color);
     height: 0;
-    transition: all 0.1s ease-in-out;
+    padding: 0;
+    transition: height 0.2s;
     overflow: hidden;
+
+    & > * {
+      display: none;
+    }
   }
 
-  .mobile-wrapper:has(.menu-checkbox:checked) {
-    transition: all 0.1s ease-in-out;
-    background: var(--menu-expanded-background-color);
-    color: var(--menu-expanded-text-color);
+  .menu-checkbox:checked {
+    & ~ .mobile-menu-wrapper {
+      height: 355px;
+      padding: 0.5rem 1rem 0;
 
-    .mobile-menu-wrapper {
-      display: block;
-      height: 100%;
-    }
-
-    .menu-btn {
-      &:before,
-      span,
-      &:after {
-        background-color: var(--menu-expanded-text-color);
-      }
-
-      &:hover {
-        &:before,
-        span,
-        &:after {
-          background-color: var(--pink);
-        }
+      & > * {
+        display: block;
       }
     }
 
-    .logo-svg-shape {
-      fill: var(--menu-expanded-text-color);
-      transition: fill 0.1s;
-    }
-
-    .theme-toggle-link {
-      svg {
-        fill: var(--menu-expanded-text-color);
-      }
-
-      &:hover {
-        svg {
-          fill: var(--pink);
-        }
-      }
-    }
-
-    .logo:hover,
-    .logo:focus {
-      .logo-svg-shape {
-        fill: var(--pink);
-      }
-    }
-
-    a {
-      color: var(--menu-expanded-text-color);
-
-      &.selected span {
-        border-color: var(--menu-expanded-text-color);
-      }
-
-      &:hover,
-      &:focus {
-        color: var(--pink);
-      }
-
-      &:hover span,
-      &:focus span {
-        border-color: var(--pink);
-      }
-    }
-
-    .text-link {
-      color: var(--menu-expanded-text-color);
-
-      &:hover {
-        color: var(--pink);
-      }
-    }
-
-    .menu-btn {
+    & ~ .menu-btn {
       &:before {
         transform: rotate(-45deg);
         top: 50%;
@@ -158,4 +92,97 @@
       }
     }
   }
+
+  // .mobile-wrapper:has(.menu-checkbox:checked) {
+  //   transition: all 0.1s ease-in-out;
+  //   background: var(--menu-expanded-background-color);
+  //   color: var(--menu-expanded-text-color);
+
+  //   .mobile-menu-wrapper {
+  //     display: block;
+  //     height: 100%;
+  //   }
+
+  //   .menu-btn {
+  //     &:before,
+  //     span,
+  //     &:after {
+  //       background-color: var(--menu-expanded-text-color);
+  //     }
+
+  //     &:hover {
+  //       &:before,
+  //       span,
+  //       &:after {
+  //         background-color: var(--pink);
+  //       }
+  //     }
+  //   }
+
+  //   .logo-svg-shape {
+  //     fill: var(--menu-expanded-text-color);
+  //     transition: fill 0.1s;
+  //   }
+
+  //   .theme-toggle-link {
+  //     svg {
+  //       fill: var(--menu-expanded-text-color);
+  //     }
+
+  //     &:hover {
+  //       svg {
+  //         fill: var(--pink);
+  //       }
+  //     }
+  //   }
+
+  //   .logo:hover,
+  //   .logo:focus {
+  //     .logo-svg-shape {
+  //       fill: var(--pink);
+  //     }
+  //   }
+
+  //   a {
+  //     color: var(--menu-expanded-text-color);
+
+  //     &.selected span {
+  //       border-color: var(--menu-expanded-text-color);
+  //     }
+
+  //     &:hover,
+  //     &:focus {
+  //       color: var(--pink);
+  //     }
+
+  //     &:hover span,
+  //     &:focus span {
+  //       border-color: var(--pink);
+  //     }
+  //   }
+
+  //   .text-link {
+  //     color: var(--menu-expanded-text-color);
+
+  //     &:hover {
+  //       color: var(--pink);
+  //     }
+  //   }
+
+  //   .menu-btn {
+  //     &:before {
+  //       transform: rotate(-45deg);
+  //       top: 50%;
+  //     }
+
+  //     span {
+  //       opacity: 0;
+  //     }
+
+  //     &:after {
+  //       transform: rotate(45deg);
+  //       top: 50%;
+  //     }
+  //   }
+  // }
 }

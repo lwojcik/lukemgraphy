@@ -1,9 +1,10 @@
 .logo {
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   max-height: 1.5rem;
-  margin: 0 0 2rem;
+  margin: 0;
+  line-height: 1;
   text-transform: uppercase;
 
   .title {
@@ -37,6 +38,6 @@
 
   @include mobile {
     max-height: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0cap;
   }
 }
