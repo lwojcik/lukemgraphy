@@ -14,7 +14,10 @@ eleventyComputed:
 {% for gallery in folder.galleries %}
   <li>
     <a href="{{ gallery.link }}">
-      <img src="{{ gallery.cover }}" alt="{{ gallery.name }} - cover image" />
+      <img class="lazy-load-img" data-src="{{ gallery.cover }}" alt="{{ gallery.name }} - cover image" />
+      <noscript>
+        <img src="{{ gallery.cover }}" alt="{{ gallery.name }} - cover image" />
+      </noscript>
       <p class="name">{{ gallery.name }}</p>
     </a>
   </li>

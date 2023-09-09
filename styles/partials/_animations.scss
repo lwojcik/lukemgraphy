@@ -1,0 +1,19 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animation-fadeIn {
+  animation: fadeIn 1s;
+}
+
+@include reducedMotion {
+  .animation-fadeIn {
+    animation: none;
+  }
+}

@@ -4,6 +4,11 @@
 @import "vendors";
 @import "partials";
 
+html:not(.no-js) noscript,
+html:not(.no-js) noscript * {
+  display: none;
+}
+
 body {
   font-size: var(--base-size);
   font-family: var(--sans-serif), var(--emoji-font-family);

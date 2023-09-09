@@ -16,40 +16,46 @@
   }
 }
 
-// @mixin noJS {
-//   .no-js {
-//     @content;
-//   }
-// }
+@mixin noJS {
+  .no-js {
+    @content;
+  }
+}
 
-// @mixin noTransitionOnReducedMotion {
-//   @include reducedMotion {
-//     transition: none;
-//   }
-// }
+@mixin noTransitionOnReducedMotion {
+  @include reducedMotion {
+    transition: none;
+  }
+}
 
-// @mixin transition($property, $duration: $defaultTransitionTime) {
-//   transition: $property $duration ease-in-out;
-//   @include noTransitionOnReducedMotion;
-// }
+@mixin noAnimationOnReducedMotion {
+  @include reducedMotion {
+    animation: none;
+  }
+}
 
-// @mixin mediaQuery($property, $value) {
-//   @media ($property: $value) {
-//     @content;
-//   }
-// }
+@mixin transition($property, $duration: $defaultTransitionTime) {
+  transition: $property $duration ease-in-out;
+  @include noTransitionOnReducedMotion;
+}
 
-// @mixin minWidth($minWidth) {
-//   @include mediaQuery(min-width, $minWidth) {
-//     @content;
-//   }
-// }
+@mixin mediaQuery($property, $value) {
+  @media ($property: $value) {
+    @content;
+  }
+}
 
-// @mixin maxWidth($maxWidth) {
-//   @include mediaQuery(max-width, $maxWidth) {
-//     @content;
-//   }
-// }
+@mixin minWidth($minWidth) {
+  @include mediaQuery(min-width, $minWidth) {
+    @content;
+  }
+}
+
+@mixin maxWidth($maxWidth) {
+  @include mediaQuery(max-width, $maxWidth) {
+    @content;
+  }
+}
 
 // @mixin belowMenuBreakpoint {
 //   @include maxWidth($menuBreakpoint) {

@@ -87,42 +87,58 @@ const handleMobileMenu = () => {
   });
 };
 
+const resizeAndRepositionImage = (item, img) => {
+  const clientHeight = img.clientHeight;
+  item.style.height = clientHeight + "px";
+  const spans = Math.ceil(clientHeight / 20);
+  item.style.gridRowEnd = `span ${spans}`;
+};
+
 const masonry = () => {
-  const gridItems = document.querySelectorAll(".grid-item");
+  const gridItems = document.querySelectorAll(".masonry li");
 
-  gridItems.forEach((item) => {
-    const img = item.lastElementChild;
-    img.addEventListener("load", function () {
-      item.style.height = img.clientHeight + "px";
-      const spans = Math.ceil(item.clientHeight / 20);
-      item.style.gridRowEnd = `span ${spans}`;
-    });
-  });
+  if (gridItems.length > 0) {
+    gridItems.forEach((item) => {
+      const img = item.querySelector("img");
+      if (img) {
+        img.addEventListener("load", () => {
+          resizeAndRepositionImage(item, img);
+        });
 
-  let images = document.querySelectorAll(".grid-item img");
-
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.intersectionRatio > 0) {
-        let attr = entry.target.getAttribute("data-src");
-        entry.target.src = attr;
-
-        if (entry.target.complete) {
-          entry.target.classList.add("animate__animated");
-          entry.target.classList.add("animate__fadeIn");
-          observer.unobserve(entry.target);
-        }
-      } else {
-        entry.target.classList.remove("animate__animated");
-        entry.target.classList.remove("animate__bounce");
-        return;
+        addEventListener("resize", () => {
+          resizeAndRepositionImage(item, img);
+        });
       }
     });
-  });
+  }
+};
 
-  images.forEach((image) => {
-    observer.observe(image);
-  });
+const lazyLoadImages = () => {
+  const images = document.querySelectorAll(".lazy-load-img");
+
+  if (images.length > 0) {
+    const animateClass = "animation-fadeIn";
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > 0) {
+          let attr = entry.target.getAttribute("data-src");
+          entry.target.src = attr;
+
+          if (entry.target.complete) {
+            entry.target.classList.add(animateClass);
+            observer.unobserve(entry.target);
+          }
+        } else {
+          entry.target.classList.remove(animateClass);
+        }
+      });
+    });
+
+    images.forEach((image) => {
+      observer.observe(image);
+    });
+  }
 };
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -132,4 +148,5 @@ window.addEventListener("DOMContentLoaded", () => {
   themeSwitcherButton();
   handleMobileMenu();
   masonry();
+  lazyLoadImages();
 });

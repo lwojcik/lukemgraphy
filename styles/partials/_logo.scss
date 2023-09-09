@@ -43,7 +43,7 @@
     margin-bottom: 0cap;
   }
 
-  @media (max-width: 310px) {
+  @include maxWidth(310px) {
     .title {
       display: none;
     }
