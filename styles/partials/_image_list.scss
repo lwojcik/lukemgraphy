@@ -1,9 +1,14 @@
-.image-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 1rem;
+  grid-auto-rows: repeat(1rem);
+}
 
-  li {
-    padding: 0.0675rem 0.25rem;
-  }
+.grid-item {
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
 }

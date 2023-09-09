@@ -25,12 +25,10 @@ Older Gallery: <a href="{{ gallery.older.link }}">{{ gallery.older.name }}</a><b
 Newer Gallery: <a href="{{ gallery.newer.link }}">{{ gallery.newer.name }}</a><br/><br/>
 {% endif %} #}
 
-<ul class="image-list masonry-layout">
+<div class="grid-container">
 {% for image in gallery.images %}
-<li>
-  <a href="{{ image.link }}">
-    <img alt="" src="{{ image.variants.o }}" />
-  </a>
-</li>
+<div class="grid-item">
+    <img title="{{ image.name }}" alt="" data-src="{{ image.variants.o }}" />
+</div>
 {% endfor %}
-</ul>
+</div>
