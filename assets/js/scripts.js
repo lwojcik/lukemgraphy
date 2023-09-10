@@ -1,128 +1,118 @@
-const themeKey = "theme";
-const darkSetting = "dark";
-const lightSetting = "light";
+document.addEventListener("DOMContentLoaded", () => {
+  const htmlElement = document.querySelector("html");
+  const themeKey = "theme";
+  const darkSetting = "dark";
+  const lightSetting = "light";
 
-const htmlElement = document.querySelector("html");
-
-const enableJS = () => {
+  // Enable JavaScript
   htmlElement.classList.remove("no-js");
-};
 
-const setTheme = (theme) => {
-  const themeSettings = [lightSetting, darkSetting];
-  const [classToRemove, classToAdd] =
-    theme === lightSetting
-      ? [darkSetting, lightSetting]
-      : [lightSetting, darkSetting];
+  // Set theme
+  const setTheme = (theme) => {
+    const themeSettings = [lightSetting, darkSetting];
+    const [classToRemove, classToAdd] =
+      theme === lightSetting
+        ? [darkSetting, lightSetting]
+        : [lightSetting, darkSetting];
 
-  if (themeSettings.includes(theme)) {
-    htmlElement.classList.remove(classToRemove);
-    htmlElement.classList.add(classToAdd);
-  }
-};
-
-const handleThemeSwitch = () => {
-  const isDarkActive = htmlElement.classList.contains(darkSetting);
-  const desiredSetting = isDarkActive ? lightSetting : darkSetting;
-  setTheme(desiredSetting);
-
-  try {
-    localStorage.setItem(themeKey, desiredSetting);
-  } catch {
-    return false;
-  }
-};
-
-const handleThemeSwitchFromKeyboard = (e) => {
-  e.preventDefault();
-  if (e.key === "Enter") {
-    handleThemeSwitch();
-  }
-};
-
-const detectSystemWideDarkMode = () => {
-  const systemWideDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
-
-  systemWideDarkMode.onchange = (e) => {
-    if (e.matches) {
-      setTheme(darkSetting);
-    } else {
-      setTheme(lightSetting);
+    if (themeSettings.includes(theme)) {
+      htmlElement.classList.remove(classToRemove);
+      htmlElement.classList.add(classToAdd);
     }
   };
 
-  if (systemWideDarkMode.matches) {
-    setTheme(darkSetting);
-  }
-};
+  // Handle theme switch
+  const handleThemeSwitch = () => {
+    const isDarkActive = htmlElement.classList.contains(darkSetting);
+    const desiredSetting = isDarkActive ? lightSetting : darkSetting;
+    setTheme(desiredSetting);
 
-const themeSwitcherButton = () => {
-  const themeSwitcherBtn = document.querySelector(".theme-toggle-link");
-
-  themeSwitcherBtn.addEventListener("click", handleThemeSwitch);
-};
-
-const detectLocalStorageDarkMode = () => {
-  try {
-    const currentSavedTheme = localStorage.getItem(themeKey) || null;
-
-    if (currentSavedTheme) {
-      setTheme(currentSavedTheme);
+    try {
+      localStorage.setItem(themeKey, desiredSetting);
+    } catch {
+      return false;
     }
-  } catch {
-    return false;
-  }
-};
+  };
 
-const handleMobileMenu = () => {
+  const themeSwitcherBtn = document.querySelector(".theme-toggle-link");
+  if (themeSwitcherBtn) {
+    themeSwitcherBtn.addEventListener("click", handleThemeSwitch);
+  }
+
+  // Detect system-wide dark mode
+  const detectSystemWideDarkMode = () => {
+    const systemWideDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    );
+
+    const toggleTheme = (e) => {
+      setTheme(e.matches ? darkSetting : lightSetting);
+    };
+
+    systemWideDarkMode.addListener(toggleTheme);
+    toggleTheme(systemWideDarkMode);
+  };
+
+  detectSystemWideDarkMode();
+
+  // Detect local storage theme
+  const detectLocalStorageDarkMode = () => {
+    try {
+      const currentSavedTheme = localStorage.getItem(themeKey);
+      if (currentSavedTheme) {
+        setTheme(currentSavedTheme);
+      }
+    } catch {
+      return false;
+    }
+  };
+
+  detectLocalStorageDarkMode();
+
+  // Handle mobile menu
   const menuBtn = document.querySelector(".menu-btn");
   const menuBtnCheckbox = document.querySelector(".menu-checkbox");
 
-  menuBtn.addEventListener("keyup", (e) => {
-    e.preventDefault();
-    if (e.key === "Enter") {
-      const { checked } = menuBtnCheckbox;
-      menuBtnCheckbox.checked = !checked;
-    }
-  });
-};
-
-const resizeAndRepositionImage = (item, img) => {
-  const clientHeight = img.clientHeight;
-  item.style.height = clientHeight + "px";
-  const spans = Math.ceil(clientHeight / 20);
-  item.style.gridRowEnd = `span ${spans}`;
-};
-
-const masonry = () => {
-  const gridItems = document.querySelectorAll(".masonry li");
-
-  if (gridItems.length > 0) {
-    gridItems.forEach((item) => {
-      const img = item.querySelector("img");
-      if (img) {
-        img.addEventListener("load", () => {
-          resizeAndRepositionImage(item, img);
-        });
-
-        addEventListener("resize", () => {
-          resizeAndRepositionImage(item, img);
-        });
+  if (menuBtn) {
+    menuBtn.addEventListener("keyup", (e) => {
+      e.preventDefault();
+      if (e.key === "Enter") {
+        const { checked } = menuBtnCheckbox;
+        menuBtnCheckbox.checked = !checked;
       }
     });
   }
-};
 
-const lazyLoadImages = () => {
-  const images = document.querySelectorAll(".lazy-load-img");
+  // Masonry
+  const masonry = () => {
+    const gridItems = document.querySelectorAll(".masonry li");
+    gridItems.forEach((item) => {
+      const img = item.querySelector("img");
+      if (img) {
+        const resizeAndRepositionImage = () => {
+          const clientHeight = img.clientHeight;
+          item.style.height = clientHeight + "px";
+          const spans = Math.ceil(clientHeight / 20);
+          item.style.gridRowEnd = `span ${spans}`;
+        };
 
-  if (images.length > 0) {
+        img.addEventListener("load", resizeAndRepositionImage);
+        window.addEventListener("resize", resizeAndRepositionImage);
+      }
+    });
+  };
+
+  masonry();
+
+  // Lazy load images
+  const lazyLoadImages = () => {
+    const images = document.querySelectorAll(".lazy-load-img");
     const animateClass = "animation-fadeIn";
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.intersectionRatio > 0) {
-          let attr = entry.target.getAttribute("data-src");
+          const attr = entry.target.getAttribute("data-src");
           entry.target.src = attr;
 
           if (entry.target.complete) {
@@ -138,12 +128,12 @@ const lazyLoadImages = () => {
     images.forEach((image) => {
       observer.observe(image);
     });
-  }
-};
+  };
 
-const lightbox = () => {
+  lazyLoadImages();
+
+  // Lightbox
   const lightboxImageLinks = document.querySelectorAll(".lightbox a");
-
   if (lightboxImageLinks.length > 0) {
     new SimpleLightbox(".lightbox a", {
       overlayOpacity: 1,
@@ -151,62 +141,36 @@ const lightbox = () => {
       showCounter: false,
     });
   }
-};
 
-const singleImageNavigation = () => {
+  // Single image navigation
   const pagination = document.querySelector(".pagination");
-
   if (pagination) {
     const back = pagination.querySelector(".back");
     const next = pagination.querySelector(".next");
     const previous = pagination.querySelector(".previous");
 
-    if (next) {
-      document.addEventListener("swiped-left", () => {
-        next.click();
+    const handleNavigation = (event, element) => {
+      document.addEventListener(event, () => {
+        element.click();
       });
 
-      addEventListener("keydown", (event) => {
-        if (event.key === "ArrowRight") {
-          next.click();
+      window.addEventListener("keydown", (event) => {
+        if (event.key === `Arrow${element === next ? "Right" : "Left"}`) {
+          element.click();
         }
       });
+    };
+
+    if (next) {
+      handleNavigation("swiped-left", next);
     }
 
     if (previous) {
-      document.addEventListener("swiped-right", () => {
-        previous.click();
-      });
-
-      addEventListener("keydown", (event) => {
-        if (event.key === "ArrowLeft") {
-          previous.click();
-        }
-      });
+      handleNavigation("swiped-right", previous);
     }
 
     if (back) {
-      document.addEventListener("swiped-up", () => {
-        back.click();
-      });
-
-      addEventListener("keydown", (event) => {
-        if (event.key === "ArrowUp") {
-          back.click();
-        }
-      });
+      handleNavigation("swiped-up", back);
     }
   }
-};
-
-window.addEventListener("DOMContentLoaded", () => {
-  enableJS();
-  detectSystemWideDarkMode();
-  detectLocalStorageDarkMode();
-  themeSwitcherButton();
-  handleMobileMenu();
-  masonry();
-  lazyLoadImages();
-  lightbox();
-  singleImageNavigation();
 });
