@@ -161,21 +161,39 @@ const singleImageNavigation = () => {
     const next = pagination.querySelector(".next");
     const previous = pagination.querySelector(".previous");
 
-    if (back) {
-      document.addEventListener("swiped-up", () => {
-        back.click();
-      });
-    }
-
     if (next) {
       document.addEventListener("swiped-right", () => {
         next.click();
       });
+
+      addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+          next.click();
+        }
+      });
     }
 
     if (previous) {
-      document.addEventListener("swiped-right", () => {
+      document.addEventListener("swiped-left", () => {
         previous.click();
+      });
+
+      addEventListener("keydown", (event) => {
+        if (event.key === "ArrowLeft") {
+          previous.click();
+        }
+      });
+    }
+
+    if (back) {
+      document.addEventListener("swiped-up", () => {
+        back.click();
+      });
+
+      addEventListener("keydown", (event) => {
+        if (event.key === "ArrowUp") {
+          back.click();
+        }
       });
     }
   }
@@ -190,4 +208,5 @@ window.addEventListener("DOMContentLoaded", () => {
   masonry();
   lazyLoadImages();
   lightbox();
+  singleImageNavigation();
 });
