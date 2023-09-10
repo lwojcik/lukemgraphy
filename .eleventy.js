@@ -1,15 +1,9 @@
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const { DateTime } = require("luxon");
-// const pluginRss = require("@11ty/eleventy-plugin-rss");
-// const cacheAvatar = require("./_11ty/helpers/cacheAvatar");
 const addHash = require("./_11ty/helpers/addHash");
-// const getFulfilledValues = require("./_11ty/helpers/getFulfilledValues");
-// const readableDate = require("./_11ty/helpers/readableDate");
-// const addRef = require("./_11ty/helpers/addRef");
 const minifyHTML = require("./_11ty/helpers/minifyHTML");
 const minifyXML = require("./_11ty/helpers/minifyXML");
 const siteConfig = require("./content/_data/siteConfig");
-// const stripAndTruncateHTML = require("./_11ty/helpers/stripAndTruncateHTML");
 
 module.exports = function (eleventyConfig) {
   // --- Copy assets
@@ -35,8 +29,6 @@ module.exports = function (eleventyConfig) {
     (path) => new URL(path, siteConfig.url)
   );
 
-  // --- Collections
-
   // --- Plugins
 
   eleventyConfig.addPlugin(faviconsPlugin, {
@@ -53,7 +45,6 @@ module.exports = function (eleventyConfig) {
       orientation: "any",
     },
   });
-  // eleventyConfig.addPlugin(pluginRss);
 
   // --- Transforms
 
