@@ -10,6 +10,10 @@ eleventyComputed:
   title: "{{ folder.name }}"
 ---
 
+<div class="breadcrumb">
+  <a href="{{ folder.link }}" class="current">{{ folder.name }}</a>
+</div>
+
 <ul class="gallery-list">
 {% for gallery in folder.galleries %}
   <li>

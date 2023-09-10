@@ -10,10 +10,13 @@ eleventyComputed:
   title: "{{ image.name }} - {{ image.parent.gallery.name }}"
 ---
 
-hi single image view<br/><br/><br/><br/>
-
-{{ image.link }}
-<br/><br/>
+<div class="breadcrumb">
+  <a href="/{{ image.parent.folder.slug }}/">{{ image.parent.folder.name }}</a>
+  /
+  <a href="/{{ image.parent.folder.slug }}/{{ image.parent.gallery.slug }}/">{{ image.parent.gallery.name }}</a>
+  /
+  <a href="/{{ image.parent.folder.slug }}/{{ image.parent.gallery.slug }}/{{ image.name }}/" class="current">{{ image.name }}</a>
+</div>
 
 Breadcrumb: {{ image.parent.folder.name }} -> {{ image.parent.gallery.name }} -> {{ image.name }}<br/><br/><br/>
 

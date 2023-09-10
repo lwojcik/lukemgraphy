@@ -29,7 +29,13 @@ const fetchGalleryDataFromApi = async () => {
       ...gallery,
       cover: path.join(IMAGE_ASSET_PATH, gallery.cover),
       link: path.join("/", gallery.parent.folder.slug, gallery.slug, "/"),
-      images: gallery.images.map(({ name, parent, variants }) => ({
+      parent: {
+        folder: {
+          ...gallery.parent.folder,
+          link: `/${gallery.parent.folder.slug}/`,
+        },
+      },
+      images: gallery.images.map(({ name, variants }) => ({
         name,
         link: path.join(
           "/",

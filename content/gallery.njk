@@ -11,7 +11,9 @@ eleventyComputed:
 ---
 
 <div class="breadcrumb">
-<a href="{{ gallery.parent.folder.link }}">{{ gallery.parent.folder.name }}</a> / <a href="{{ gallery.link }}" class="gallery-link">{{ gallery.name }}</a>
+  <a href="{{ gallery.parent.folder.link }}">{{ gallery.parent.folder.name }}</a>
+  /
+  <a href="{{ gallery.link }}" class="current">{{ gallery.name }}</a>
 </div>
 
 {# {{ gallery.name }}<br/><br/>
