@@ -8,6 +8,9 @@ pagination:
 permalink: "{{ gallery.link }}"
 eleventyComputed:
   title: "{{ gallery.name }}"
+  ogImage: "{{ gallery.cover }}"
+  ogUrl: "{{ gallery.link }}"
+  description: "{{ gallery.name }} - photography gallery on {{ siteConfig.title }}, by {{ siteConfig.author.name }}."
 ---
 
 <div class="breadcrumb">

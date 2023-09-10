@@ -8,6 +8,8 @@ pagination:
 permalink: "{{ folder.link }}"
 eleventyComputed:
   title: "{{ folder.name }}"
+  ogUrl: "{{ folder.link }}"
+  description: "{{ folder.name }} - photography galleries on {{ siteConfig.title }}, by {{ siteConfig.author.name }}."
 ---
 
 <div class="breadcrumb">

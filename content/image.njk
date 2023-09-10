@@ -8,6 +8,9 @@ pagination:
 permalink: "{{ image.link }}"
 eleventyComputed:
   title: "{{ image.name }} - {{ image.parent.gallery.name }}"
+  ogImage: "{{ image.variants.w640 | alwaysProductionUrl }}"
+  ogUrl: "{{ image.link }}"
+  description: "Image {{ image.name }} from photography gallery {{ image.parent.gallery.name }} on {{ siteConfig.title }}, by {{ siteConfig.author.name }}."
 ---
 
 {%- set parentFolderLink -%}

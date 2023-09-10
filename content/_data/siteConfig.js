@@ -3,6 +3,8 @@ const packageJson = require("../../package.json");
 module.exports = {
   title: "LukemGraphy",
   description: "photography by Łukasz Wójcik",
+  defaultMetaDescription:
+    "Personal photography collection by Łukasz Wójcik. Cities, events, landscape, nature, people, travels, stories.",
   url: "https://lukemgraphy.eu",
   startYear: 2014,
   language: "en",

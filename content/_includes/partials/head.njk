@@ -9,15 +9,41 @@
   {%- endif -%}
 {%- endset -%}
 
+{%- set openGraphImage -%}
+  {%- if ogImage -%}
+    {{ ogImage | alwaysProductionUrl }}
+  {%- else -%}
+    {{ "/apple-touch-icon.png" | alwaysProductionUrl }}
+  {%- endif -%}
+{%- endset -%}
+
+{%- set openGraphUrl -%}
+  {%- if ogUrl -%}
+    {{ ogUrl | alwaysProductionUrl }}
+  {%- else -%}
+    {{ "/" | alwaysProductionUrl }}
+  {%- endif -%}
+{%- endset -%}
+
+{%- set metaDescription -%}
+{%- if description -%}
+{{ description }}
+{%- else -%}
+{{ siteConfig.defaultMetaDescription }}
+{%- endif -%}
+{%- endset -%}
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ pageTitle }}</title>
-<meta name="description" content="{{ siteConfig.description }}">
+<meta name="description" content="{{ metaDescription }}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/apple-touch-icon.png">
+<meta property="og:image" content="{{ openGraphImage }}">
+<meta property="og:url" content="{{ openGraphUrl }}" />
+<meta property="og:description" content="{{ metaDescription }}" />
 <link rel="stylesheet" href="{{ '/css/style.css' | addHash }}">
 <script src="{{ '/js/vendors/lightbox.js' }}"></script>
 <script src="{{ '/js/vendors/swiped-events.js' }}"></script>
 <script src="{{ '/js/scripts.js' }}"></script>
 <meta name="generator" content="{{ siteConfig.generator.name }} v{{ siteConfig.generator.version }}">
-{% favicons 'content/_includes/svg/logo.svg', appleIconBgColor='#000' %}
+{%- favicons 'content/_includes/svg/logo.svg', appleIconBgColor='#dddddd' -%}
