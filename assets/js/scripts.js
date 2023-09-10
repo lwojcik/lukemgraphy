@@ -173,4 +173,59 @@ document.addEventListener("DOMContentLoaded", () => {
       handleNavigation("swiped-up", back);
     }
   }
+
+  const mainPageRotator = () => {
+    const showcase = document.querySelector(".main-page-showcase");
+
+    if (showcase) {
+      let images = [];
+      let imagesLength = 0;
+      let currentImage = 0;
+      let timer;
+
+      const handleImageChange = () => {
+        images[currentImage].classList.remove("visible");
+        currentImage = (currentImage + 1) % imagesLength;
+        images[currentImage].classList.add("visible");
+      };
+
+      const startTimer = () => {
+        timer = setInterval(() => {
+          handleImageChange();
+        }, 6000);
+      };
+
+      const pauseTimer = () => {
+        clearInterval(timer);
+      };
+
+      const updateTimer = () => {
+        if (window.innerWidth >= 768) {
+          startTimer();
+        } else {
+          pauseTimer();
+        }
+      };
+
+      images = showcase.querySelectorAll(".item");
+      imagesLength = images.length;
+      updateTimer();
+
+      if (window.innerWidth >= 768) {
+        window.addEventListener("resize", () => {
+          updateTimer();
+        });
+
+        showcase.addEventListener("mouseenter", () => {
+          pauseTimer();
+        });
+
+        showcase.addEventListener("mouseleave", () => {
+          updateTimer();
+        });
+      }
+    }
+  };
+
+  mainPageRotator();
 });
