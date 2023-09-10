@@ -141,6 +141,18 @@ const lazyLoadImages = () => {
   }
 };
 
+const lightbox = () => {
+  const lightboxImageLinks = document.querySelectorAll(".lightbox a");
+
+  if (lightboxImageLinks.length > 0) {
+    new SimpleLightbox(".lightbox a", {
+      overlayOpacity: 1,
+      sourceAttr: "data-image-href",
+      showCounter: false,
+    });
+  }
+};
+
 window.addEventListener("DOMContentLoaded", () => {
   enableJS();
   detectSystemWideDarkMode();
@@ -149,4 +161,5 @@ window.addEventListener("DOMContentLoaded", () => {
   handleMobileMenu();
   masonry();
   lazyLoadImages();
+  lightbox();
 });

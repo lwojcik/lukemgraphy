@@ -25,12 +25,12 @@ Older Gallery: <a href="{{ gallery.older.link }}">{{ gallery.older.name }}</a><b
 Newer Gallery: <a href="{{ gallery.newer.link }}">{{ gallery.newer.name }}</a><br/><br/>
 {% endif %} #}
 
-<ul class="image-list masonry">
+<ul class="image-list masonry lightbox">
 {% for image in gallery.images %}
 {% set imageAlt %}{{ gallery.name }} - image {{ loop.index }} of {{ gallery.images.length }}{% endset %}
 {% set imageSrc = image.variants.w640 %}
   <li>
-    <a href="{{ image.link }}">
+    <a href="{{ image.link }}" data-image-href="{{ image.variants.w2048 }}">
       <img
         class="lazy-load-img"
         alt="{{ imageAlt }}"

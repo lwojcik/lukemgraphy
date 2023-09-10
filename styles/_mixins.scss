@@ -63,9 +63,9 @@
 //   }
 // }
 
-// @mixin darkMode {
-//   html.dark,
-//   html:not(.light) {
-//     @content;
-//   }
-// }
+@mixin darkMode {
+  html.dark,
+  html:not(.light) {
+    @content;
+  }
+}
