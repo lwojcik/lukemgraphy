@@ -25,8 +25,8 @@ Newer Gallery: <a href="{{ gallery.newer.link }}">{{ gallery.newer.name }}</a><b
 
 <ul class="image-list masonry lightbox">
 {% for image in gallery.images %}
-{% set imageAlt %}{{ gallery.name }} - image {{ loop.index }} of {{ gallery.images.length }}{% endset %}
-{% set imageSrc = image.variants.w640 %}
+  {% set imageAlt %}{{ gallery.name }} - image {{ loop.index }} of {{ gallery.images.length }}{% endset %}
+  {% set imageSrc = image.variants.w640 %}
   <li>
     <a href="{{ image.link }}" data-image-href="{{ image.variants.w2048 }}">
       <img
