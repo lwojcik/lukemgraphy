@@ -1,0 +1,8 @@
+.single-image {
+  margin: 0 auto;
+  text-align: center;
+
+  img {
+    max-height: calc(100vh - 12.75rem);
+  }
+}

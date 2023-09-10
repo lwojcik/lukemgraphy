@@ -18,13 +18,13 @@ eleventyComputed:
   <a href="/{{ image.parent.folder.slug }}/{{ image.parent.gallery.slug }}/{{ image.name }}/" class="current">{{ image.name }}</a>
 </div>
 
-Breadcrumb: {{ image.parent.folder.name }} -> {{ image.parent.gallery.name }} -> {{ image.name }}<br/><br/><br/>
-
-{% if image.next %}
+{# {% if image.next %}
 Next Image: <a href="{{ image.next.link }}">{{ image.next.name }}</a><br/><br/>
 {% endif %}
 {% if image.previous %}
 Previous Image: <a href="{{ image.previous.link }}">{{ image.previous.name }}</a><br/><br/>
-{% endif %}
+{% endif %} #}
 
-<img width="600" src="{{ image.variants.w2048 }}" alt="" /><br/><br/>
+<div class="single-image">
+  <img src="{{ image.variants.w2048 }}" alt="" /><br/><br/>
+</div>
