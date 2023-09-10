@@ -162,7 +162,7 @@ const singleImageNavigation = () => {
     const previous = pagination.querySelector(".previous");
 
     if (next) {
-      document.addEventListener("swiped-right", () => {
+      document.addEventListener("swiped-left", () => {
         next.click();
       });
 
@@ -174,7 +174,7 @@ const singleImageNavigation = () => {
     }
 
     if (previous) {
-      document.addEventListener("swiped-left", () => {
+      document.addEventListener("swiped-right", () => {
         previous.click();
       });
 
