@@ -1,10 +1,10 @@
 ---
 layout: base
 pagination:
-    data: apiData.images
-    size: 1
-    alias: image
-    addAllPagesToCollections: true
+  data: apiData.images
+  size: 1
+  alias: image
+  addAllPagesToCollections: true
 permalink: "{{ image.link }}"
 eleventyComputed:
   title: "{{ image.name }} - {{ image.parent.gallery.name }}"
@@ -27,17 +27,13 @@ eleventyComputed:
 {%- set imageName = image.name -%}
 {%- set imageSrc = image.variants.w2048 -%}
 
-{%- set imageSrcSet -%}
-  {{ image.variants.w2048 }} 2048w,
-  {{ image.variants.w1440 }} 1440w,
-  {{ image.variants.w1024 }} 1024w,
-  {{ image.variants.w640 }} 640w,
-  {{ image.variants.w420 }} 420w,
-{%- endset -%}
+{%- set imageSrcSet -%}{{ image.variants.w2048 }} 2048w,
+{{ image.variants.w1440 }} 1440w,
+{{ image.variants.w1024 }} 1024w,
+{{ image.variants.w640 }} 640w,
+{{ image.variants.w420 }} 420w{%- endset -%}
 
-{%- set imageSizes -%}
-  (min-width: 768px) 66.6vw, 100vw
-{%- endset -%}
+{%- set imageSizes -%}(min-width: 768px) 66.6vw, 100vw{%- endset -%}
 
 <div class="breadcrumb">
   <a href="{{ parentFolderLink }}">{{ parentFolderName }}</a>

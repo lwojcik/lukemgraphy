@@ -153,6 +153,34 @@ const lightbox = () => {
   }
 };
 
+const singleImageNavigation = () => {
+  const pagination = document.querySelector(".pagination");
+
+  if (pagination) {
+    const back = pagination.querySelector(".back");
+    const next = pagination.querySelector(".next");
+    const previous = pagination.querySelector(".previous");
+
+    if (back) {
+      document.addEventListener("swiped-up", () => {
+        back.click();
+      });
+    }
+
+    if (next) {
+      document.addEventListener("swiped-right", () => {
+        next.click();
+      });
+    }
+
+    if (previous) {
+      document.addEventListener("swiped-right", () => {
+        previous.click();
+      });
+    }
+  }
+};
+
 window.addEventListener("DOMContentLoaded", () => {
   enableJS();
   detectSystemWideDarkMode();
