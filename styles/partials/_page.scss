@@ -1,0 +1,38 @@
+.page {
+  max-width: 80rem;
+
+  p {
+    line-height: 1.6;
+  }
+
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  a {
+    font-weight: 500;
+    border-bottom: 2px solid var(--text-color);
+    @include transition(all, var(--transition-time));
+
+    &:hover {
+      border-color: var(--pink);
+    }
+  }
+
+  .my-photo {
+    width: 50%;
+    max-width: 800px;
+    float: right;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @include mobile {
+    .my-photo {
+      width: 100%;
+      float: none;
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}

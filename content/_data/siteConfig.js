@@ -11,6 +11,7 @@ module.exports = {
   author: {
     name: "Łukasz Wójcik",
     url: "https://lukaszwojcik.net/",
+    contact: "https://lukaszwojcik.net/contact/",
   },
   generator: {
     name: "Eleventy",
