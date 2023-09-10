@@ -7,13 +7,13 @@ eleventyExcludeFromCollections: true
 <title>{{ siteConfig.title }}</title>
 <link href="{{ '/feed.xml' | alwaysProductionUrl }}" rel="self" />
 <link href="{{ '/' | alwaysProductionUrl }}" rel="alternate" />
-<updated>{{ galleryData.galleries[0].date }}</updated>
+<updated>{{ apiData.galleries[0].date }}</updated>
 <author>
   <name>Łukasz Wójcik</name>
   <uri>{{ '/' | alwaysProductionUrl }}</uri>
 </author>
 <id>{{ '/' | alwaysProductionUrl }}</id>
-{%- for gallery in galleryData.galleries -%}
+{%- for gallery in apiData.galleries -%}
 <entry>
 <title>{{ gallery.name }}</title>
 <link href="{{ gallery.link | alwaysProductionUrl }}" />
@@ -24,9 +24,7 @@ eleventyExcludeFromCollections: true
 <updated>{{ gallery.date }}</updated>
 <id>{{ gallery.link | alwaysProductionUrl }}</id>
 <content type="html">
-  <![CDATA[
-    <img src="{{ gallery.images[0].variants.o | alwaysProductionUrl }}" />
-  ]]>
+  <![CDATA[<a href="{{ gallery.link | alwaysProductionUrl }}"><img alt="{{ gallery.name }} - cover image" src="{{ gallery.cover | alwaysProductionUrl }}" /></a>]]>
 </content>
 </entry>
 {%- endfor -%}
