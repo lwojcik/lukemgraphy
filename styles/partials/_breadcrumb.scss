@@ -6,6 +6,7 @@
 
     &.current {
       border-bottom: 2px solid var(--text-color);
+      @include transition(all, var(--transition-time));
 
       &:hover,
       &:focus {

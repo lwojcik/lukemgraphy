@@ -14,6 +14,17 @@
     margin: 0;
     padding: 0;
 
+    a:hover,
+    a:focus {
+      @include transition(color, var(--transition-time));
+    }
+
+    a:hover img,
+    a:focus img {
+      opacity: 0.9;
+      @include transition(opacity, var(--transition-time));
+    }
+
     .name {
       margin: 0.25rem 0 0;
       padding: 0;

@@ -38,7 +38,7 @@ a,
 .text-link {
   text-decoration: none;
   color: var(--link-color);
-  transition: color var(--transition-time);
+  @include transition(color, var(--transition-time));
 }
 
 a:hover,

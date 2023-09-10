@@ -21,7 +21,7 @@
     span {
       border-bottom: 2px solid;
       border-color: transparent;
-      transition: border-color 0.1s ease-in-out;
+      @include transition(border-color, var(--transition-time));
     }
 
     &.selected {
@@ -42,7 +42,7 @@
     color: var(--text-color);
     border-bottom: 2px solid;
     border-color: transparent;
-    transition: all 0.1s ease-in-out;
+    @include transition(all, var(--transition-time));
     padding: 0.5rem 0 2px;
 
     &:hover {
@@ -57,8 +57,8 @@
     svg {
       height: 1rem;
       margin-right: 0.25rem;
-      transition: fill 0.1s ease-in-out;
       fill: var(--text-color);
+      @include transition(fill, var(--transition-time));
     }
 
     &:hover {

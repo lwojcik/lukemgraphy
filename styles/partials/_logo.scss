@@ -25,7 +25,7 @@
 
     .logo-svg-shape {
       fill: var(--text-color);
-      transition: fill 0.1s;
+      @include transition(fill, var(--transition-time));
     }
   }
 
