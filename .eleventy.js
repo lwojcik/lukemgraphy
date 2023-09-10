@@ -6,9 +6,9 @@ const addHash = require("./_11ty/helpers/addHash");
 // const getFulfilledValues = require("./_11ty/helpers/getFulfilledValues");
 // const readableDate = require("./_11ty/helpers/readableDate");
 // const addRef = require("./_11ty/helpers/addRef");
-// const minifyHTML = require("./_11ty/helpers/minifyHTML");
+const minifyHTML = require("./_11ty/helpers/minifyHTML");
+const minifyXML = require("./_11ty/helpers/minifyXML");
 const siteConfig = require("./content/_data/siteConfig");
-// const minifyXML = require("./_11ty/helpers/minifyXML");
 // const stripAndTruncateHTML = require("./_11ty/helpers/stripAndTruncateHTML");
 
 module.exports = function (eleventyConfig) {
@@ -57,8 +57,8 @@ module.exports = function (eleventyConfig) {
 
   // --- Transforms
 
-  // eleventyConfig.addTransform("minifyHTML", minifyHTML);
-  // eleventyConfig.addTransform("minifyXML", minifyXML);
+  eleventyConfig.addTransform("minifyHTML", minifyHTML);
+  eleventyConfig.addTransform("minifyXML", minifyXML);
 
   // --- Shortcodes
 
