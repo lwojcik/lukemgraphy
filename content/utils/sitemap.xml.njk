@@ -1,0 +1,39 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ '/' | alwaysProductionUrl }}</loc>
+  </url>
+  <url>
+    <loc>{{ '/about/' | alwaysProductionUrl }}</loc>
+  </url>
+  <url>
+    <loc>{{ '/subscribe/' | alwaysProductionUrl }}</loc>
+  </url>
+  {%- for folder in apiData.folders -%}
+  <url>
+    <loc>{{ folder.link | alwaysProductionUrl }}</loc>
+  </url>
+  {%- endfor -%}
+  {%- for gallery in apiData.galleries -%}
+  <url>
+    <loc>{{ gallery.link | alwaysProductionUrl }}</loc>
+  </url>
+  {%- endfor -%}
+  {%- for gallery in apiData.galleries -%}
+  {%- for image in gallery.images -%}
+    {%- set imageUrl -%}
+      {{ gallery.link }}{{ image.name }}
+    {%- endset -%}
+    <url>
+      <loc>{{ imageUrl | alwaysProductionUrl }}/</loc>
+    </url>
+  {%- endfor -%}
+  {# <url>
+    <loc>{{ gallery.link | alwaysProductionUrl }}</loc>
+  </url> #}
+  {%- endfor -%}
+</urlset>
