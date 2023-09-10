@@ -46,6 +46,18 @@ a:focus {
   color: var(--pink);
 }
 
+blockquote {
+  font-weight: 500;
+  margin: 0;
+  padding: 0.5rem 0rem;
+
+  footer {
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+}
+
 .text-link {
   font-weight: 500;
   cursor: pointer;
