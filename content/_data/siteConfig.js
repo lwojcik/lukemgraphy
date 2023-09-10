@@ -7,6 +7,7 @@ module.exports = {
     "Personal photography collection by Łukasz Wójcik. Cities, events, landscape, nature, people, travels, stories.",
   url: "https://lukemgraphy.eu",
   startYear: 2014,
+  rssFeed: "/feed.xml",
   language: "en",
   author: {
     name: "Łukasz Wójcik",

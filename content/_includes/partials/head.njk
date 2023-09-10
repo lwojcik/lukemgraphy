@@ -41,9 +41,10 @@
 <meta property="og:image" content="{{ openGraphImage }}">
 <meta property="og:url" content="{{ openGraphUrl }}" />
 <meta property="og:description" content="{{ metaDescription }}" />
+<link rel="alternate" type="application/rss+xml"  title="LukemGraphy RSS Feed" href="{{ siteConfig.rssFeed }}" />
 <link rel="stylesheet" href="{{ '/css/style.css' | addHash }}">
-<script src="{{ '/js/vendors/lightbox.js' }}"></script>
-<script src="{{ '/js/vendors/swiped-events.js' }}"></script>
-<script src="{{ '/js/scripts.js' }}"></script>
+<script src="{{ '/js/vendors/lightbox.js' | addHash }}"></script>
+<script src="{{ '/js/vendors/swiped-events.js' | addHash }}"></script>
+<script src="{{ '/js/scripts.js' | addHash }}"></script>
 <meta name="generator" content="{{ siteConfig.generator.name }} v{{ siteConfig.generator.version }}">
 {%- favicons 'content/_includes/svg/logo.svg', appleIconBgColor='#dddddd' -%}
