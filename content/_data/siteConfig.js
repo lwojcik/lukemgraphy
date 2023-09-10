@@ -12,6 +12,33 @@ module.exports = {
     name: "Łukasz Wójcik",
     url: "https://lukaszwojcik.net/",
     contact: "https://lukaszwojcik.net/contact/",
+    mastodon: "https://hachyderm.io/@lukem",
+  },
+  social: {
+    the500px: {
+      url: "https://500px.com/p/lwojcik",
+      name: "lwojcik @ 500px",
+    },
+    deviantArt: {
+      url: "https://www.deviantart.com/lukemgraphy",
+      name: "lukemgraphy @ DeviantArt",
+    },
+    flickr: {
+      url: "https://www.flickr.com/photos/lukemgraphy/",
+      name: "lukemgraphy @ Flickr",
+    },
+    instagram: {
+      url: "https://www.instagram.com/lukemgraphy/",
+      name: "lukemgraphy @ Instagram",
+    },
+    pixelfed: {
+      url: "https://pixelfed.social/lukemgraphy",
+      name: "lukemgraphy @ Pixelfed.social",
+    },
+    tumblr: {
+      url: "https://www.tumblr.com/lukemgraphy",
+      name: "lukemgraphy @ Tumblr",
+    },
   },
   generator: {
     name: "Eleventy",

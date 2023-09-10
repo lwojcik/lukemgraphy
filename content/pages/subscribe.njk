@@ -8,11 +8,15 @@ description: Want to see my photos on your social feed? Follow me on any social 
 
 <p>Want to see my photos on your social feed? Follow me on any social platform of your choice:</p>
 
+
+{%- set social = siteConfig.social -%}
 <ul class="social-media">
-  <li><a href="https://500px.com/p/lwojcik">500px</a></li>
-  <li><a href="https://www.deviantart.com/lukemgraphy">DeviantArt</a></li>
-  <li><a href="https://www.flickr.com/photos/lukemgraphy/">Flickr</a></li>
-  <li><a href="https://www.instagram.com/lukemgraphy/">Instagram</a></li>
-  <li><a href="https://pixelfed.social/lukemgraphy">Pixelfed</a></li>
-  <li><a href="https://www.tumblr.com/lukemgraphy">Tumblr</a></li>
+  <li><a href="{{ social.the500px.url }}">{{ social.the500px.name }}</a></li>
+  <li><a href="{{ social.deviantArt.url }}">{{ social.deviantArt.name }}</a></li>
+  <li><a href="{{ social.flickr.url }}">{{ social.flickr.name }} </a></li>
+  <li><a href="{{ social.instagram.url }}">{{ social.instagram.name }} </a></li>
+  <li><a href="{{ social.pixelfed.url }}">{{ social.pixelfed.name }}</a></li>
+  <li><a href="{{ social.tumblr.url }}">{{ social.tumblr.name }}</a></li>
 </ul>
+
+<p>For a stream of chaotic thoughts (often unrelated to photography), <a href="{{ siteConfig.author.mastodon }}">follow me on Mastodon</a>.</p>
