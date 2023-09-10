@@ -28,10 +28,14 @@ Newer Gallery: <a href="{{ gallery.newer.link }}">{{ gallery.newer.name }}</a><b
 <ul class="image-list masonry">
 {% for image in gallery.images %}
 {% set imageAlt %}{{ gallery.name }} - image {{ loop.index }} of {{ gallery.images.length }}{% endset %}
-{% set imageSrc = image.variants.m %}
+{% set imageSrc = image.variants.w640 %}
   <li>
     <a href="{{ image.link }}">
-      <img class="lazy-load-img" alt="{{ imageAlt }}" data-src="{{ imageSrc }}" />
+      <img
+        class="lazy-load-img"
+        alt="{{ imageAlt }}"
+        data-src="{{ imageSrc }}"
+      />
       <noscript>
         <img alt="{{ imageAlt }}" src="{{ imageSrc }}" />
       </noscript>

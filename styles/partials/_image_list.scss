@@ -19,11 +19,19 @@
     }
   }
 
-  @media screen and (min-width: 640px) {
+  @media screen and (min-width: 580px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
+  @media screen and (min-width: 780px) {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
   @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+
+  @media screen and (min-width: 1900px) {
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
   }
 }

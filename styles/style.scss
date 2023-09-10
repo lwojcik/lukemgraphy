@@ -5,7 +5,8 @@
 @import "partials";
 
 html:not(.no-js) noscript,
-html:not(.no-js) noscript * {
+html:not(.no-js) noscript *,
+html.no-js .lazy-load-img {
   display: none;
 }
 
