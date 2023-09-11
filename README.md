@@ -1,3 +1,3 @@
-# blognik.pl
+# lukemgraphy.eu
 
-👉 [blognik.pl](https://blognik.pl/)
+👉 [lukemgraphy.eu](https://lukemgraphy.eu/)
