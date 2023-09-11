@@ -16,6 +16,15 @@
           "value": "max-age=63072000; includeSubDomains; preload"
         }
       ]
+    },
+    {
+      "source": "/(.*).xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/xml"
+        }
+      ]
     }
   ],
   "redirects": [
