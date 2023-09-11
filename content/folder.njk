@@ -1,0 +1,31 @@
+---
+layout: base
+pagination:
+    data: apiData.folders
+    size: 1
+    alias: folder
+    addAllPagesToCollections: true
+permalink: "{{ folder.link }}"
+eleventyComputed:
+  title: "{{ folder.name }}"
+  ogUrl: "{{ folder.link }}"
+  description: "{{ folder.name }} - photography galleries on {{ siteConfig.title }}, by {{ siteConfig.author.name }}."
+---
+
+<div class="breadcrumb">
+  <a href="{{ folder.link }}" class="current">{{ folder.name }}</a>
+</div>
+
+<ul class="gallery-list">
+{% for gallery in folder.galleries %}
+  <li>
+    <a href="{{ gallery.link }}">
+      <img class="lazy-load-img" data-src="{{ gallery.cover }}" alt="{{ gallery.name }} - cover image" />
+      <noscript>
+        <img src="{{ gallery.cover }}" alt="{{ gallery.name }} - cover image" />
+      </noscript>
+      <p class="name">{{ gallery.name }}</p>
+    </a>
+  </li>
+{% endfor %}
+</ul>

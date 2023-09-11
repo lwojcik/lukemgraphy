@@ -1,0 +1,31 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>{{ siteConfig.title }}</title>
+<link href="{{ '/feed.xml' | alwaysProductionUrl }}" rel="self" />
+<link href="{{ '/' | alwaysProductionUrl }}" rel="alternate" />
+<updated>{{ apiData.galleries[0].date }}</updated>
+<author>
+  <name>Łukasz Wójcik</name>
+  <uri>{{ '/' | alwaysProductionUrl }}</uri>
+</author>
+<id>{{ '/' | alwaysProductionUrl }}</id>
+{%- for gallery in apiData.galleries -%}
+<entry>
+<title>{{ gallery.name }}</title>
+<link href="{{ gallery.link | alwaysProductionUrl }}" />
+<author>
+  <name>{{ siteConfig.author.name }}</name>
+  <uri>{{ siteConfig.author.url }}</uri>
+</author>
+<updated>{{ gallery.date }}</updated>
+<id>{{ gallery.link | alwaysProductionUrl }}</id>
+<content type="html">
+  <![CDATA[<a href="{{ gallery.link | alwaysProductionUrl }}"><img alt="{{ gallery.name }} - cover image" src="{{ gallery.cover | alwaysProductionUrl }}" /></a>]]>
+</content>
+</entry>
+{%- endfor -%}
+</feed>

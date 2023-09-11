@@ -1,0 +1,59 @@
+@mixin reducedMotion {
+  @media (prefers-reduced-motion) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin noJS {
+  .no-js {
+    @content;
+  }
+}
+
+@mixin noTransitionOnReducedMotion {
+  @include reducedMotion {
+    transition: none;
+  }
+}
+
+@mixin noAnimationOnReducedMotion {
+  @include reducedMotion {
+    animation: none;
+  }
+}
+
+@mixin transition($property, $duration: $defaultTransitionTime) {
+  transition: $property $duration ease-in-out;
+  @include noTransitionOnReducedMotion;
+}
+
+@mixin mediaQuery($property, $value) {
+  @media ($property: $value) {
+    @content;
+  }
+}
+
+@mixin minWidth($minWidth) {
+  @include mediaQuery(min-width, $minWidth) {
+    @content;
+  }
+}
+
+@mixin maxWidth($maxWidth) {
+  @include mediaQuery(max-width, $maxWidth) {
+    @content;
+  }
+}
+
+@mixin darkMode {
+  html.dark,
+  html:not(.light) {
+    @content;
+  }
+}

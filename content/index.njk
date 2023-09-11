@@ -1,0 +1,28 @@
+---
+layout: base
+eleventyExcludeFromCollections: true
+permalink: /
+eleventyComputed:
+  description: "Personal photography collection by {{ siteConfig.author.name }}. Cities, events, landscape, travels, stories."
+---
+
+<div class="main-page-showcase">
+{% for item in rotator.images %}
+    {%- set imageSrcSet -%}/images/{{ item.folderSlug }}/{{ item.gallerySlug }}/{{ item.imageName }}-w2048.jpg 2048w,
+    /images/{{ item.folderSlug }}/{{ item.gallerySlug }}/{{ item.imageName }}-w1440.jpg 1440w,
+    /images/{{ item.folderSlug }}/{{ item.gallerySlug }}/{{ item.imageName }}-w1024.jpg }} 1024w,
+    /images/{{ item.folderSlug }}/{{ item.gallerySlug }}/{{ item.imageName }}-w640.jpg 640w,
+    /images/{{ item.folderSlug }}/{{ item.gallerySlug }}/{{ item.imageName }}-w420.jpg 420w{%- endset -%}
+    {%- set imageSizes -%}(min-width: 768px) 80vw, 100vw{%- endset -%}
+
+  <a class="item{%- if loop.first %} visible{%- endif -%}" href="{{ item.url }}">
+    <img
+      srcset="{{ imageSrcSet }}"
+      sizes="{{ imageSizes }}"
+      src="/images/{{ item.folderSlug }}/{{ item.gallerySlug }}/{{ item.imageName }}-w2048.jpg"
+      alt=""
+    />
+  </a>
+{% endfor %}
+
+</div>

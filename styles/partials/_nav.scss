@@ -1,0 +1,21 @@
+.nav {
+  width: 22rem;
+  padding: 3rem;
+  position: fixed;
+
+  @include mobile {
+    padding: 0;
+    min-width: 300px;
+    width: 100%;
+    position: static;
+
+    .header {
+      padding: 1rem;
+      max-height: 56px;
+
+      a {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

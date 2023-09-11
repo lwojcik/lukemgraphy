@@ -1,0 +1,23 @@
+---
+layout: page
+title: Subscribe
+eleventyExcludeFromCollections: true
+permalink: /subscribe/
+description: Want to see my photos on your social feed? Follow me on any social platform of your choice.
+---
+
+<p>Want to see my photos on your social feed? Follow me on any social platform of your choice:</p>
+
+{%- set social = siteConfig.social -%}
+<ul class="social-media">
+  <li><a href="{{ social.the500px.url }}">{{ social.the500px.name }}</a></li>
+  <li><a href="{{ social.deviantArt.url }}">{{ social.deviantArt.name }}</a></li>
+  <li><a href="{{ social.flickr.url }}">{{ social.flickr.name }} </a></li>
+  <li><a href="{{ social.instagram.url }}">{{ social.instagram.name }} </a></li>
+  <li><a href="{{ social.pixelfed.url }}">{{ social.pixelfed.name }}</a></li>
+  <li><a href="{{ social.tumblr.url }}">{{ social.tumblr.name }}</a></li>
+</ul>
+
+<p>Using RSS? <a href="{{ siteConfig.rssFeed }}">Subscribe to LukemGraphy RSS feed</a>.</p>
+
+<p>For a stream of chaotic thoughts (often unrelated to photography), <a href="{{ siteConfig.author.mastodon }}">follow me on Mastodon</a>.</p>

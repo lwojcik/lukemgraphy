@@ -1,0 +1,46 @@
+:root {
+  --sans-serif: montserrat, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --emoji-font-family: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+    Noto Color Emoji;
+  --base-size: 16px;
+  --black: #222;
+  --white: #f5f5f5;
+  --pink: #fd26b9;
+  --lighter-gray: #ddd;
+  --light-gray: #999;
+  --dark-gray: #666;
+  --darker-gray: #333;
+  --main-color: var(--pink);
+  --transition-time: 0.1s;
+}
+
+@mixin lightModeColors {
+  --background-color: var(--white);
+  --text-color: var(--black);
+  --menu-expanded-background-color: var(--lighter-gray);
+  --menu-expanded-text-color: var(--white);
+}
+
+@mixin darkModeColors {
+  --background-color: var(--black);
+  --text-color: var(--lighter-gray);
+  --menu-expanded-background-color: var(--darker-gray);
+  --menu-expanded-text-color: var(--white);
+}
+
+:root,
+html:not(.dark) {
+  @include lightModeColors;
+}
+
+html.dark {
+  @include darkModeColors;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root,
+  html:not(.light),
+  html.dark {
+    @include darkModeColors;
+  }
+}

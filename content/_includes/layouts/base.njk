@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ siteConfig.language }}">
+<head>
+  {% include "partials/head.njk" %}
+</head>
+<body>
+  {% include "partials/skiplink.njk" %}
+  {% include "partials/nav.njk" %}
+  <div class="content" id="content">
+    {{ content | safe }}
+  </div>
+</body>
+</html>

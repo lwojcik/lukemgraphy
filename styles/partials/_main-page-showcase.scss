@@ -1,0 +1,54 @@
+.main-page-showcase {
+  position: relative;
+  text-align: right;
+
+  .item {
+    height: 100%;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    text-indent: -9999px;
+    @include transition(all, 1s);
+
+    &.visible {
+      visibility: visible;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 1600px;
+    max-height: calc(100vh - 6rem);
+    margin: 0 auto 4rem;
+  }
+
+  @include mobile {
+    .item {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    img {
+      position: static;
+    }
+  }
+}
+
+@include noJS {
+  .main-page-showcase {
+    .item {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    img {
+      position: static;
+    }
+  }
+}

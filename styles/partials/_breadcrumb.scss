@@ -1,0 +1,17 @@
+.breadcrumb {
+  margin-bottom: 3rem;
+
+  a {
+    font-weight: bold;
+
+    &.current {
+      border-bottom: 2px solid var(--text-color);
+      @include transition(all, var(--transition-time));
+
+      &:hover,
+      &:focus {
+        border-color: var(--pink);
+      }
+    }
+  }
+}
