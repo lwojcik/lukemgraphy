@@ -20,22 +20,6 @@
   ],
   "redirects": [
     {
-      "source": "/Warsaw(.*)",
-      "destination": "/warsaw/"
-    },
-    {
-      "source": "/Elsewhere(.*)",
-      "destination": "/elsewhere/"
-    },
-    {
-      "source": "/Miscellaneous(.*)",
-      "destination": "/misc/"
-    },
-    {
-      "source": "/pages/About(.*)",
-      "destination": "/about/"
-    },
-    {
       "source": "/Warsaw/Warsaw-centre-August-2014(.*)",
       "destination": "/warsaw-2014-2019/warsaw-centre-06-2014/"
     },
@@ -98,6 +82,22 @@
     {
       "source": "/Warsaw/Warsaw-assorted(.*)",
       "destination": "/warsaw-2014-2019/assorted-14-19/"
+    },
+    {
+      "source": "/Warsaw(.*)",
+      "destination": "/warsaw/"
+    },
+    {
+      "source": "/Elsewhere(.*)",
+      "destination": "/elsewhere/"
+    },
+    {
+      "source": "/Miscellaneous(.*)",
+      "destination": "/misc/"
+    },
+    {
+      "source": "/pages/About(.*)",
+      "destination": "/about/"
     }
   ]
 }
