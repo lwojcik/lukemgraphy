@@ -17,5 +17,87 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/Warsaw/Warsaw-centre-August-2014(.*)",
+      "destination": "/warsaw-2014-2019/warsaw-centre-06-2014/"
+    },
+    {
+      "source": "/Miscellaneous/Varia(.*)",
+      "destination": "/misc/varia/"
+    },
+    {
+      "source": "/Elsewhere/London-August-2015(.*)",
+      "destination": "/elsewhere/london-08-2015/"
+    },
+    {
+      "source": "/Elsewhere/Wroclaw-March-2014(.*)",
+      "destination": "/elsewhere/wroclaw-03-2014/"
+    },
+    {
+      "source": "/Warsaw/Polish-Independence-Day-November-2014(.*)",
+      "destination": "/warsaw-2014-2019/independence-day-2014/"
+    },
+    {
+      "source": "/Warsaw/Siekierkowski-Bridge-April-2014(.*)",
+      "destination": "/warsaw-2014-2019/siekierkowski-bridge-04-2014/"
+    },
+    {
+      "source": "/Warsaw/50th-anniversary-of-Warsaw-Uprising-August-2014(.*)",
+      "destination": "/warsaw-2014-2019/warsaw-uprising-2014/"
+    },
+    {
+      "source": "/Warsaw/Harley-Davidson-exhibition-August-2014(.*)",
+      "destination": "/warsaw-2014-2019/harley-warsaw-rally-2014/"
+    },
+    {
+      "source": "/Warsaw/Feast-of-the-Polish-Armed-Forces-August-2014(.*)",
+      "destination": "/warsaw-2014-2019/armed-forces-day-2014/"
+    },
+    {
+      "source": "/Warsaw/Polish-Army-Museum-in-Warsaw-August-2014(.*)",
+      "destination": "/warsaw-2014-2019/polish-army-museum-08-2014/"
+    },
+    {
+      "source": "/Warsaw/Kino-Femina-September-2014(.*)",
+      "destination": "/warsaw-2014-2019/kino-femina-09-2014/"
+    },
+    {
+      "source": "/Warsaw/Arne-Schmitt-in-Warsaw-October-2014(.*)",
+      "destination": "/warsaw-2014-2019/arne-schmitt-10-2014/"
+    },
+    {
+      "source": "/Warsaw/First-day-of-metro2-March-2015(.*)",
+      "destination": "/warsaw-2014-2019/opening-metro2-2015/"
+    },
+    {
+      "source": "/Warsaw/Public-Transport-Days-in-Warsaw-September-2016(.*)",
+      "destination": "/warsaw-2014-2019/public-transport-days-2016/"
+    },
+    {
+      "source": "/Warsaw/Warsaw-Zoo-April-2017(.*)",
+      "destination": "/warsaw-2014-2019/warsaw-zoo-04-2017/"
+    },
+    {
+      "source": "/Warsaw/Warsaw-assorted(.*)",
+      "destination": "/warsaw-2014-2019/assorted-14-19/"
+    },
+    {
+      "source": "/Warsaw(.*)",
+      "destination": "/warsaw/"
+    },
+    {
+      "source": "/Elsewhere(.*)",
+      "destination": "/elsewhere/"
+    },
+    {
+      "source": "/Miscellaneous(.*)",
+      "destination": "/misc/"
+    },
+    {
+      "source": "/pages/About(.*)",
+      "destination": "/about/"
+    }
   ]
 }
