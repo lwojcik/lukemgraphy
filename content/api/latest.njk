@@ -2,7 +2,6 @@
 permalink: /api/latest.json
 eleventyExcludeFromCollections: true
 ---
-
 {%- for gallery in apiData.galleries|limit(1) -%}
 {
   "title": "{{ gallery.name }}",
