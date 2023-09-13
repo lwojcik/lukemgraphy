@@ -29,6 +29,8 @@ module.exports = function (eleventyConfig) {
     (path) => new URL(path, siteConfig.url)
   );
 
+  eleventyConfig.addFilter("limit", (array, limit) => array.slice(0, limit));
+
   // --- Plugins
 
   eleventyConfig.addPlugin(faviconsPlugin, {
