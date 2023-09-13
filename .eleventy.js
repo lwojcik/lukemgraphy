@@ -3,6 +3,7 @@ const { DateTime } = require("luxon");
 const addHash = require("./_11ty/helpers/addHash");
 const minifyHTML = require("./_11ty/helpers/minifyHTML");
 const minifyXML = require("./_11ty/helpers/minifyXML");
+const minifyJSON = require("./_11ty/helpers/minifyJSON");
 const siteConfig = require("./content/_data/siteConfig");
 
 module.exports = function (eleventyConfig) {
@@ -52,6 +53,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addTransform("minifyHTML", minifyHTML);
   eleventyConfig.addTransform("minifyXML", minifyXML);
+
+  eleventyConfig.addTransform("minifyJOSN", minifyJSON);
 
   // --- Shortcodes
 
