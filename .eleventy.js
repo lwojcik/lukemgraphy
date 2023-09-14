@@ -53,8 +53,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addTransform("minifyHTML", minifyHTML);
   eleventyConfig.addTransform("minifyXML", minifyXML);
-
-  eleventyConfig.addTransform("minifyJOSN", minifyJSON);
+  eleventyConfig.addTransform("minifyJSON", minifyJSON);
 
   // --- Shortcodes
 
