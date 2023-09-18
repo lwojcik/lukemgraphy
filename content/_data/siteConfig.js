@@ -47,6 +47,7 @@ module.exports = {
   },
   api: {
     url: "https://api.lukemgraphy.eu",
+    imageFileExtension: "webp",
     foldersEndpoint: "/folders.json",
     galleriesEndpoint: "/galleries.json",
     localCacheDuration: "7d",
