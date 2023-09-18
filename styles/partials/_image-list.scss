@@ -7,6 +7,11 @@
   margin: 0;
   padding: 0;
 
+  img {
+    width: 100%;
+    height: auto;
+  }
+
   li {
     @include transition(all, 0.1s);
   }
