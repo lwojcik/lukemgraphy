@@ -3,16 +3,19 @@
   font-style: normal;
   font-weight: 400;
   src: local("Montserrat"), url(/fonts/Montserrat-Regular.woff2) format("woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: montserrat;
   font-style: normal;
   font-weight: 500;
   src: local("Montserrat"), url(/fonts/Montserrat-Medium.woff2) format("woff2");
+  font-display: swap;
 }
 @font-face {
   font-family: montserrat;
   font-style: normal;
   font-weight: 700;
   src: local("Montserrat"), url(/fonts/Montserrat-Bold.woff2) format("woff2");
+  font-display: swap;
 }
