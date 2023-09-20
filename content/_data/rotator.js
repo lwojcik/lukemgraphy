@@ -16,6 +16,13 @@ module.exports = {
     },
     {
       folderSlug: "warsaw-2014-2019",
+      gallerySlug: "2019-09-gymkhana-grid",
+      url: "/warsaw-2014-2019/gymkhana-grid-2019/021/",
+      imageName: "021",
+      imageAlt: "Gymkhana Grid 2019 - image 021",
+    },
+    {
+      folderSlug: "warsaw-2014-2019",
       gallerySlug: "2014-11-polish-independence-day",
       url: "/warsaw-2014-2019/independence-day-2014/032/",
       imageName: "032",
