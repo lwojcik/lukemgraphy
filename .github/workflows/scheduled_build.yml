@@ -1,0 +1,14 @@
+name: Deploy static site
+on:
+  workflow_dispatch:
+
+jobs:
+  DeploySite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy site
+        uses: lwojcik/github-action-deploy-static-site@v1
+        with:
+          platform: vercel
+          vercel_deploy_hook_url: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+          always_deploy: true
