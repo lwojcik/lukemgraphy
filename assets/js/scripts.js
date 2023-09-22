@@ -174,6 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // image rotator on main page
   const mainPageRotator = () => {
     const showcase = document.querySelector(".main-page-showcase");
 
@@ -192,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const startTimer = () => {
         timer = setInterval(() => {
           handleImageChange();
-        }, 6000);
+        }, 3000);
       };
 
       const pauseTimer = () => {
