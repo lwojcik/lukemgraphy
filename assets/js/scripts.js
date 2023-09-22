@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const startTimer = () => {
         timer = setInterval(() => {
           handleImageChange();
-        }, 3000);
+        }, 3500);
       };
 
       const pauseTimer = () => {
