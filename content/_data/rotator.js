@@ -8,6 +8,13 @@ module.exports = {
       imageAlt: "Me - image 000",
     },
     {
+      folderSlug: "elsewhere",
+      gallerySlug: "2023-07-miedzyzdroje",
+      url: "/elsewhere/miedzyzdroje-06-2023/022/",
+      imageName: "022",
+      imageAlt: "Międzyzdroje, June 2023 - image 022",
+    },
+    {
       folderSlug: "warsaw-2014-2019",
       gallerySlug: "2016-09-public-transport-days",
       url: "/warsaw-2014-2019/public-transport-days-2016/053/",
