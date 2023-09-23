@@ -6,7 +6,9 @@ const {
   url: API_URL,
   foldersEndpoint: FOLDERS_ENDPOINT,
   galleriesEndpoint: GALLERIES_ENDPOINT,
-  localCacheDuration: LOCAL_CACHE_DURATION,
+  defaultCacheDuration: DEFAULT_CACHE_DURATION,
+  imageCacheDuration: IMAGE_CACHE_DURATION,
+  endpointCacheDuration: ENDPOINT_CACHE_DURATION,
 } = siteConfig.api;
 
 const dataTypes = ["json", "text", "buffer"];
@@ -14,7 +16,7 @@ const dataTypes = ["json", "text", "buffer"];
 const fetchFromApi = async ({
   endpoint,
   type = "json",
-  duration = LOCAL_CACHE_DURATION,
+  duration = DEFAULT_CACHE_DURATION,
 }) => {
   if (!dataTypes.includes(type)) {
     throw new Error(
@@ -32,11 +34,24 @@ const fetchFromApi = async ({
   });
 };
 
-const fetchFolders = () => fetchFromApi({ endpoint: FOLDERS_ENDPOINT });
+const fetchFolders = () =>
+  fetchFromApi({
+    endpoint: FOLDERS_ENDPOINT,
+    duration: ENDPOINT_CACHE_DURATION,
+  });
 
-const fetchGalleries = () => fetchFromApi({ endpoint: GALLERIES_ENDPOINT });
+const fetchGalleries = () =>
+  fetchFromApi({
+    endpoint: GALLERIES_ENDPOINT,
+    duration: ENDPOINT_CACHE_DURATION,
+  });
 
-const fetchImage = (path) => fetchFromApi({ endpoint: path, type: "buffer" });
+const fetchImage = (path) =>
+  fetchFromApi({
+    endpoint: path,
+    type: "buffer",
+    duration: IMAGE_CACHE_DURATION,
+  });
 
 module.exports = {
   fetchFolders,
