@@ -25,12 +25,15 @@
     }
 
     li {
-      margin: 0 1rem 0 0;
+      margin: 0 0.75rem 0 0;
     }
   
     a {
+      display: inline-block;
       border-bottom: 0;
       text-decoration: none;
+      width: 2rem;
+      height: 2rem;
 
       &:hover,
       &:focus {
@@ -42,7 +45,7 @@
   
     svg {
       fill: var(--text-color);
-      max-width: 2rem;
+      width: 2rem;
       height: 2rem;
       @include transition(fill, var(--transition-time));
     }
