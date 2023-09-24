@@ -6,4 +6,58 @@
   a {
     border-bottom: 1px solid;
   }
+
+  .socials {
+    margin: 2rem 0;
+    padding: 0;
+    text-align: left;
+  
+    ul, li {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      list-style: none;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+    }
+
+    li {
+      margin: 0 1rem 0 0;
+    }
+  
+    a {
+      border-bottom: 0;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        svg {
+          fill: var(--pink);
+        }
+      }
+    }
+  
+    svg {
+      fill: var(--text-color);
+      max-width: 2rem;
+      height: 2rem;
+      @include transition(fill, var(--transition-time));
+    }
+  }
+}
+
+@include mobile {
+  .footer .socials {
+    li {
+      margin: 0 1.25rem 0 0;
+    }
+
+    svg {
+    max-width: 2.2rem;
+    height: 2.2rem;
+  }
+}
 }
