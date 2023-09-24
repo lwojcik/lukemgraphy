@@ -13,7 +13,10 @@ module.exports = {
     name: "Łukasz Wójcik",
     url: "https://lukaszwojcik.net/",
     contact: "https://lukaszwojcik.net/contact/",
-    mastodon: "https://hachyderm.io/@lukem",
+    fediverse: { 
+      mastodon: "https://hachyderm.io/@lukem",
+      pixelfed: "https://pixelfed.social/lukemgraphy",
+    },
   },
   social: {
     the500px: {
