@@ -1,3 +1,20 @@
 <footer class="footer">
   <p>&copy; {{ siteConfig.startYear }} - {% currentYear %}<br/><a href="{{ siteConfig.author.url }}">{{ siteConfig.author.name }}</a></p>
+
+  <div class="socials">
+    <ul>
+      <li>
+        <a href="{{ siteConfig.social.deviantArt.url }}" title="Follow {{ siteConfig.social.deviantArt.name }}">{% include "svg/socials/deviantart.svg" %}</a>
+      </li>
+      <li>
+        <a href="{{ siteConfig.social.instagram.url }}" title="Follow {{ siteConfig.social.instagram.name }}">{% include "svg/socials/instagram.svg" %}</a>
+      </li>
+      <li>
+        <a href="{{ siteConfig.social.flickr.url }}" title="Follow {{ siteConfig.social.flickr.name }}">{% include "svg/socials/flickr.svg" %}</a>
+      </li>
+      <li>
+        <a href="/feed.xml" title="Subscribe to RSS feed">{% include "svg/socials/rss.svg" %}</a>
+      </li>
+    </ul>
+  </div>
 </footer>
