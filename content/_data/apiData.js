@@ -10,11 +10,13 @@ const fetchFoldersFromApi = async () => {
     return folders.map((folder) => ({
       ...folder,
       link: path.join("/", folder.slug, "/"),
-      galleries: folder.galleries.map((gallery) => ({
-        ...gallery,
-        link: path.join("/", folder.slug, gallery.slug, "/"),
-        cover: path.join(IMAGE_ASSET_PATH, gallery.cover),
-      })),
+      galleries: folder.galleries
+        .filter(gallery => !gallery.hidden)
+        .map((gallery) => ({
+          ...gallery,
+          link: path.join("/", folder.slug, gallery.slug, "/"),
+          cover: path.join(IMAGE_ASSET_PATH, gallery.cover),
+        })),
     }));
   } catch (error) {
     throw new Error(error);
@@ -54,7 +56,8 @@ const fetchGalleryDataFromApi = async () => {
       })),
     }));
 
-    const galleries = galleriesWithImages.map((gallery, index) => ({
+    const galleries =
+      galleriesWithImages.filter(gallery => !gallery.hidden).map((gallery, index) => ({
       ...gallery,
       newer:
         index > 0
