@@ -43,6 +43,7 @@
 <meta property="og:description" content="{{ metaDescription }}" />
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noai, noimageai">
+{% if gallery.hidden or folder.hidden or image.parent.folder.hidden %}<meta name="robots" content="noindex">{% endif %}
 <link rel="alternate" type="application/rss+xml"  title="LukemGraphy RSS Feed" href="{{ siteConfig.rssFeed }}" />
 <link rel="stylesheet" href="{{ '/css/style.css' | addHash }}">
 <script src="{{ '/js/vendors/lightbox.js' | addHash }}"></script>
