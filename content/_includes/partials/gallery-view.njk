@@ -1,0 +1,45 @@
+<div class="breadcrumb">
+  <a href="{{ gallery.parent.folder.link }}">{{ gallery.parent.folder.name }}</a>
+  /
+  <a href="{{ gallery.link }}" class="current">{{ gallery.name }}</a>
+</div>
+
+<ul class="image-list masonry lightbox">
+{% for image in gallery.images %}
+  {% set imageAlt %}{{ gallery.name }} - image {{ loop.index }} of {{ gallery.images.length }}{% endset %}
+  {% set imageSrc = image.variants.w640 %}
+  <li>
+    <a href="{{ image.link }}" data-image-href="{{ image.variants.w2048 }}">
+      <img
+        width="640"
+        height="480"
+        class="lazy-load-img"
+        alt="{{ imageAlt }}"
+        data-src="{{ imageSrc }}"
+      />
+      <noscript>
+        <img alt="{{ imageAlt }}" src="{{ imageSrc }}" />
+      </noscript>
+    </a>
+  </li>
+{% endfor %}
+</ul>
+
+<div class="gallery-navigation">
+  <div class="newer">
+  {% if gallery.newer %}
+    <a href="{{ gallery.newer.link }}">
+      <span class="caption">Newer Gallery:</span>
+      <span class="name">{{ gallery.newer.name }}</span>
+    </a>
+  {% endif %}
+  </div>
+  <div class="older">
+  {% if gallery.older %}
+    <a href="{{ gallery.older.link }}">
+      <span class="caption">Older Gallery:</span>
+      <span class="name">{{ gallery.older.name }}</span>
+    </a>
+  {% endif %}
+  </div>
+</div>

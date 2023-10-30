@@ -12,10 +12,12 @@ const BUILD_PATH = path.join(__dirname, "../../_site");
 
 module.exports = async () => {
   try {
-    const { galleries } = await fetchGalleryDataFromApi();
-    const galleryCovers = galleries.map(({ cover }) => cover);
+    const { galleries, hiddenGalleries } = await fetchGalleryDataFromApi();
+    const allGalleries = [...galleries, ...hiddenGalleries];
 
-    const images = galleries.flatMap(({ images }) =>
+    const galleryCovers = allGalleries.map(({ cover }) => cover);
+
+    const images = allGalleries.flatMap(({ images }) =>
       images.flatMap(({ variants }) =>
         Object.keys(variants).map((variantKey) => variants[variantKey])
       )
