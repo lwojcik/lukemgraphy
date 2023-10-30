@@ -11,7 +11,6 @@ const fetchFoldersFromApi = async () => {
       ...folder,
       link: path.join("/", folder.slug, "/"),
       galleries: folder.galleries
-        .filter(gallery => !gallery.hidden)
         .map((gallery) => ({
           ...gallery,
           link: path.join("/", folder.slug, gallery.slug, "/"),
@@ -56,26 +55,52 @@ const fetchGalleryDataFromApi = async () => {
       })),
     }));
 
-    const galleries =
-      galleriesWithImages.filter(gallery => !gallery.hidden).map((gallery, index) => ({
-      ...gallery,
-      newer:
-        index > 0
-          ? {
-              link: galleriesWithImages[index - 1].link,
-              name: galleriesWithImages[index - 1].name,
-            }
-          : null,
-      older:
-        index < galleriesWithImages.length - 1
-          ? {
-              link: galleriesWithImages[index + 1].link,
-              name: galleriesWithImages[index + 1].name,
-            }
-          : null,
-    }));
+    const publicGalleriesWithImages = galleriesWithImages.filter(gallery => !gallery.hidden);
 
-    const imageData = galleries.flatMap(
+    const hiddenGalleriesWithImages = galleriesWithImages.filter(gallery => gallery.hidden);
+
+    const galleries =
+      publicGalleriesWithImages.map((gallery, index) => ({
+          ...gallery,
+          newer:
+            index > 0
+              ? {
+                  link: publicGalleriesWithImages[index - 1].link,
+                  name: publicGalleriesWithImages[index - 1].name,
+                }
+              : null,
+          older:
+            index < publicGalleriesWithImages.length - 1
+              ? {
+                  link: publicGalleriesWithImages[index + 1].link,
+                  name: publicGalleriesWithImages[index + 1].name,
+                }
+              : null,
+          }));
+    
+    const hiddenGalleries =
+      hiddenGalleriesWithImages.map((gallery, index) => ({
+          ...gallery,
+          newer:
+            index > 0
+              ? {
+                  link: hiddenGalleriesWithImages[index - 1].link,
+                  name: hiddenGalleriesWithImages[index - 1].name,
+                }
+              : null,
+          older:
+            index < hiddenGalleriesWithImages.length - 1
+              ? {
+                  link: hiddenGalleriesWithImages[index + 1].link,
+                  name: hiddenGalleriesWithImages[index + 1].name,
+                }
+              : null,
+          }));
+
+    const allGalleries = [...galleries, ...hiddenGalleries];
+
+
+    const imageData = allGalleries.flatMap(
       ({ name: galleryName, slug: gallerySlug, parent: { folder }, images }) =>
         images.map(({ name, variants }) => ({
           name,
@@ -111,6 +136,7 @@ const fetchGalleryDataFromApi = async () => {
 
     return {
       galleries,
+      hiddenGalleries,
       images,
     };
   } catch (error) {

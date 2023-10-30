@@ -55,7 +55,7 @@ module.exports = {
     galleriesEndpoint: "/galleries.json",
     defaultCacheDuration: "7d",
     imageCacheDuration: "365d",
-    endpointCacheDuration: "5m",
+    endpointCacheDuration: "2m",
     downloadIntervalMs: 0,
   },
   imageAssetPath: "/images",

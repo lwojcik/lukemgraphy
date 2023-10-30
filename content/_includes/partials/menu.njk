@@ -1,24 +1,26 @@
 <menu class="menu">
   <ul>
     {% for item in apiData.folders %}
-      {%- set currentSlug -%}
-        {%- if folder.link -%}
-          {{ folder.link }}
-        {%- endif -%}
-        {%- if gallery.parent.folder.slug -%}
-          /{{ gallery.parent.folder.slug }}/
-        {%- endif -%}
-        {%- if image.parent.folder.slug -%}
-          /{{ image.parent.folder.slug }}/
-        {%- endif -%}
-      {%- endset -%}
-      <li>
-        <a href="{{ item.link }}"{% if item.link === currentSlug %} class="selected"{% endif %}>
-          <span>
-            {{ item.name }}
-          </span>
-        </a>
-      </li>
+      {% if item.hidden !== true %}
+        {%- set currentSlug -%}
+          {%- if folder.link -%}
+            {{ folder.link }}
+          {%- endif -%}
+          {%- if gallery.parent.folder.slug -%}
+            /{{ gallery.parent.folder.slug }}/
+          {%- endif -%}
+          {%- if image.parent.folder.slug -%}
+            /{{ image.parent.folder.slug }}/
+          {%- endif -%}
+        {%- endset -%}
+        <li>
+          <a href="{{ item.link }}"{% if item.link === currentSlug %} class="selected"{% endif %}>
+            <span>
+              {{ item.name }}
+            </span>
+          </a>
+        </li>
+      {% endif %}
     {% endfor %}
     <li>
       <a href="/about/"{% if permalink === "/about/" %} class="selected"{% endif %}><span>About</span></a>
