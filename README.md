@@ -1,3 +1,3 @@
-# lukemgraphy.eu
+# photo
 
-👉 [lukemgraphy.eu](https://lukemgraphy.eu/)
+👉 [My photography site](https://photo.lukaszwojcik.net/)
