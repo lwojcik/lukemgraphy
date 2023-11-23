@@ -3,9 +3,9 @@
 
 {%- set pageTitle -%}
   {%- if title -%}
-    {{ title | safe }} - {{ siteTitle }}
+    {{ title | safe }} - {{ siteTitle }} {{ siteDescription }}
   {%- else -%}
-    {{ siteTitle }} - {{ siteDescription }}
+    {{ siteTitle }} {{ siteDescription }}
   {%- endif -%}
 {%- endset -%}
 
@@ -44,7 +44,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noai, noimageai">
 {% if gallery.hidden or folder.hidden or image.parent.folder.hidden %}<meta name="robots" content="noindex">{% endif %}
-<link rel="alternate" type="application/rss+xml"  title="LukemGraphy RSS Feed" href="{{ siteConfig.rssFeed }}" />
+<link rel="alternate" type="application/rss+xml"  title="{{ siteConfig.title }} {{ siteConfig.description }} RSS Feed" href="{{ siteConfig.rssFeed }}" />
 <link rel="stylesheet" href="{{ '/css/style.css' | addHash }}">
 <script src="{{ '/js/vendors/lightbox.js' | addHash }}"></script>
 <script src="{{ '/js/vendors/swiped-events.js' | addHash }}"></script>

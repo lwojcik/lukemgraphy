@@ -1,11 +1,11 @@
 const packageJson = require("../../package.json");
 
 module.exports = {
-  title: "LukemGraphy",
-  description: "photography by Łukasz Wójcik",
+  title: "Łukasz Wójcik",
+  description: "Photography",
   defaultMetaDescription:
     "Personal photography collection by Łukasz Wójcik. Cities, events, landscape, nature, people, travels, stories.",
-  url: "https://lukemgraphy.eu",
+  url: "https://photo.lukaszwojcik.net",
   startYear: 2014,
   rssFeed: "/feed.xml",
   language: "en",
@@ -49,7 +49,7 @@ module.exports = {
     version: packageJson.dependencies["@11ty/eleventy"].replace("^", ""),
   },
   api: {
-    url: "https://api.lukemgraphy.eu",
+    url: "https://photos-api.lukaszwojcik.net/",
     imageFileExtension: "webp",
     foldersEndpoint: "/folders.json",
     galleriesEndpoint: "/galleries.json",
