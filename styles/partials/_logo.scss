@@ -9,6 +9,10 @@
   position: relative;
   z-index: 10;
 
+  .container {
+    max-width: 200px;
+  }
+
   .title {
     font-size: 1.25rem;
     font-weight: 800;
@@ -44,7 +48,7 @@
   }
 
   @include maxWidth(310px) {
-    .title {
+    .container {
       display: none;
     }
   }
