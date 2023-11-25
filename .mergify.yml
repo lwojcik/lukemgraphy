@@ -38,7 +38,7 @@ pull_request_rules:
       - conflict
     actions:
       comment:
-        message: This pull request is now in conflicts. Could you fix it @{{author}}?
+        message: This pull request has conflicts. Could you fix it @{{author}}?
   - name: Automatic merge of owner-made PRs for main when CI passes and owner approves
     conditions:
       - status-success=Vercel
