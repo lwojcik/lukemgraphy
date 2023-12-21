@@ -3,9 +3,9 @@
 
 {%- set pageTitle -%}
   {%- if title -%}
-    {{ title | safe }} - {{ siteTitle }} {{ siteDescription }}
+    {{ title | safe }} - {{ siteTitle }}
   {%- else -%}
-    {{ siteTitle }} {{ siteDescription }}
+    {{ siteTitle }} - {{ siteDescription }}
   {%- endif -%}
 {%- endset -%}
 

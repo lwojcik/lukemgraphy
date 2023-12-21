@@ -3,6 +3,10 @@
   padding: 3rem;
   position: fixed;
 
+  .description {
+    display: block;
+  }
+
   @include mobile {
     padding: 0;
     min-width: 300px;
