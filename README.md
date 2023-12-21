@@ -1,3 +1,3 @@
 # photo
 
-👉 [My photography site](https://photo.lukaszwojcik.net/)
+👉 [My photography site](https://lukemgraphy.eu/)
