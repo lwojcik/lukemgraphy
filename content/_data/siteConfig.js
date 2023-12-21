@@ -1,11 +1,12 @@
 const packageJson = require("../../package.json");
 
 module.exports = {
-  title: "Łukasz Wójcik",
-  description: "Photography",
+  title: "LukemGraphy",
+  subtitle: "by Łukasz Wójcik",
+  description: "photography by Łukasz Wójcik",
   defaultMetaDescription:
     "Personal photography collection by Łukasz Wójcik. Cities, events, landscape, nature, people, travels, stories.",
-  url: "https://photo.lukaszwojcik.net",
+  url: "https://lukemgraphy.eu",
   startYear: 2014,
   rssFeed: "/feed.xml",
   language: "en",
@@ -39,9 +40,17 @@ module.exports = {
       url: "https://pixelfed.social/lukemgraphy",
       name: "lukemgraphy @ Pixelfed.social",
     },
-    tumblr: {
-      url: "https://www.tumblr.com/lukemgraphy",
-      name: "lukemgraphy @ Tumblr",
+    threads: {
+      url: "https://www.threads.net/@lukemgraphy",
+      name: "lukemgraphy @ Threads",
+    },
+    vimeo: {
+      url: "https://vimeo.com/lukemgraphy",
+      name: "lukemgraphy @ Vimeo",
+    },
+    youtube: {
+      url: "https://www.youtube.com/@lukemgraphy",
+      name: "lukemgraphy @ YouTube",
     },
   },
   generator: {
