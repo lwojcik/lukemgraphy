@@ -1,0 +1,24 @@
+---
+layout: base
+pagination:
+  data: apiData.videos
+  size: 1
+  alias: video
+  addAllPagesToCollections: true
+permalink: "/video/{{ video.slug }}/"
+eleventyComputed:
+  title: "{{ video.name }}"
+  description: "Video {{ video.name }} by {{ siteConfig.author.name }}."
+---
+
+<div class="breadcrumb">
+  <a href="/videos/">Videos</a>
+  /
+  <a href="/video/{{ video.slug }}/" class="current">{{ video.name }}</a>
+</div>
+
+single video: 
+
+{{ video.name }}
+
+{{ video.type }}

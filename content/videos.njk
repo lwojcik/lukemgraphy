@@ -10,9 +10,8 @@ eleventyComputed:
   <a href="/videos/" class="current">Videos</a>
 </div>
 
-{% for item in apiData.videos %}
-  {{ item.name }}<br/>
-  {{ item.type }}<br/>
-  {{ item.slug }}<br/>
-  {{ item.videoId }}<br/><br/>
+{% for video in apiData.videos %}
+  <a href="/video/{{ video.slug }}/">
+    {{ video.name }}
+  </a><br/><br/>
 {% endfor %}
