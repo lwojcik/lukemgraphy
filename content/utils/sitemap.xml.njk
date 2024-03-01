@@ -13,6 +13,9 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ '/subscribe/' | alwaysProductionUrl }}</loc>
   </url>
+  <url>
+    <loc>{{ '/videos/' | alwaysProductionUrl }}</loc>
+  </url>
   {%- for folder in apiData.folders -%}
   <url>
     <loc>{{ folder.link | alwaysProductionUrl }}</loc>
@@ -24,16 +27,19 @@ eleventyExcludeFromCollections: true
   </url>
   {%- endfor -%}
   {%- for gallery in apiData.galleries -%}
-  {%- for image in gallery.images -%}
-    {%- set imageUrl -%}
-      {{ gallery.link }}{{ image.name }}
-    {%- endset -%}
-    <url>
-      <loc>{{ imageUrl | alwaysProductionUrl }}/</loc>
-    </url>
+    {%- for image in gallery.images -%}
+      {%- set imageUrl -%}
+        {{ gallery.link }}{{ image.name }}
+      {%- endset -%}
+      <url>
+        <loc>{{ imageUrl | alwaysProductionUrl }}/</loc>
+      </url>
+    {%- endfor -%}
   {%- endfor -%}
-  {# <url>
-    <loc>{{ gallery.link | alwaysProductionUrl }}</loc>
-  </url> #}
+  {%- for video in apiData.videos -%}
+    {% set videoLink %}/video/{{ video.slug }}/{% endset %}
+    <url>
+      <loc>{{ videoLink | alwaysProductionUrl }}</loc>
+    </url>
   {%- endfor -%}
 </urlset>
