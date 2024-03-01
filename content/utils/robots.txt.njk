@@ -2,6 +2,10 @@
 eleventyExcludeFromCollections: true
 permalink: /robots.txt
 ---
+
+User-agent: *
+Disallow:
+
 User-agent: CCBot
 Disallow: /
 
@@ -13,8 +17,5 @@ Disallow: /
 
 User-agent: Google-Extended
 Disallow: /
-
-User-agent: *
-Disallow:
 
 Sitemap: {{ '/sitemap.xml' | alwaysProductionUrl }}
