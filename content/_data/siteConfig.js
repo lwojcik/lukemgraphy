@@ -40,10 +40,10 @@ module.exports = {
       url: "https://pixelfed.social/lukemgraphy",
       name: "lukemgraphy @ Pixelfed.social",
     },
-    threads: {
-      url: "https://www.threads.net/@lukemgraphy",
-      name: "lukemgraphy @ Threads",
-    },
+    // threads: {
+    //   url: "https://www.threads.net/@lukemgraphy",
+    //   name: "lukemgraphy @ Threads",
+    // },
     vimeo: {
       url: "https://vimeo.com/lukemgraphy",
       name: "lukemgraphy @ Vimeo",
