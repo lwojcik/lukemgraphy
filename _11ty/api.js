@@ -6,6 +6,7 @@ const {
   url: API_URL,
   foldersEndpoint: FOLDERS_ENDPOINT,
   galleriesEndpoint: GALLERIES_ENDPOINT,
+  videosEndpoint: VIDEOS_ENDPOINT,
   defaultCacheDuration: DEFAULT_CACHE_DURATION,
   imageCacheDuration: IMAGE_CACHE_DURATION,
   endpointCacheDuration: ENDPOINT_CACHE_DURATION,
@@ -46,6 +47,13 @@ const fetchGalleries = () =>
     duration: ENDPOINT_CACHE_DURATION,
   });
 
+const fetchVideos = () =>
+  fetchFromApi({
+    endpoint: VIDEOS_ENDPOINT,
+    duration: ENDPOINT_CACHE_DURATION,
+  });
+
+
 const fetchImage = (path) =>
   fetchFromApi({
     endpoint: path,
@@ -56,5 +64,6 @@ const fetchImage = (path) =>
 module.exports = {
   fetchFolders,
   fetchGalleries,
+  fetchVideos,
   fetchImage,
 };
