@@ -7,7 +7,7 @@
     "build": "npm-run-all build:*",
     "postbuild": "npm run minify:js",
     "minify:js": "node ./build-scripts/minify",
-    "watch:eleventy": "npx eleventy --serve --quiet",
+    "watch:eleventy": "npx eleventy --serve",
     "watch:sass": "sass --no-source-map --watch ./styles:_site/css --style compressed",
     "build:sass": "sass --no-source-map styles:_site/css --style compressed",
     "clean": "rimraf _site",

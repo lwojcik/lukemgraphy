@@ -144,7 +144,16 @@ const fetchGalleryDataFromApi = async () => {
   }
 };
 
+const fetchVideosFromApi = async () => {
+  try {
+    return api.fetchVideos();
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 module.exports = async () => ({
   folders: await fetchFoldersFromApi(),
   ...(await fetchGalleryDataFromApi()),
+  ...(await fetchVideosFromApi()),
 });

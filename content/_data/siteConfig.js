@@ -62,6 +62,7 @@ module.exports = {
     imageFileExtension: "webp",
     foldersEndpoint: "/folders.json",
     galleriesEndpoint: "/galleries.json",
+    videosEndpoint: "/videos.json",
     defaultCacheDuration: "7d",
     imageCacheDuration: "365d",
     endpointCacheDuration: "2m",

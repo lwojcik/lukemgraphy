@@ -1,0 +1,17 @@
+---
+layout: base
+permalink: /videos/
+eleventyComputed:
+  title: Videos
+  description: "Videos by {{ siteConfig.author.name }}."
+---
+
+<div class="breadcrumb">
+  <a href="/videos/" class="current">Videos</a>
+</div>
+
+{% for video in apiData.videos %}
+  <a href="/video/{{ video.slug }}/">
+    {{ video.name }}
+  </a><br/><br/>
+{% endfor %}

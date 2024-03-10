@@ -107,6 +107,14 @@
     {
       "source": "/pages/About(.*)",
       "destination": "/about/"
+    },
+    {
+      "source": "/video/",
+      "destination": "/videos/"
+    },
+    {
+      "source": "/vids(.*)",
+      "destination": "/videos/"
     }
   ]
 }

@@ -23,6 +23,9 @@
       {% endif %}
     {% endfor %}
     <li>
+      <a href="/videos/"{% if permalink === "/videos/" %} class="selected"{% endif %}><span>Videos</span></a>
+    </li>
+    <li>
       <a href="/about/"{% if permalink === "/about/" %} class="selected"{% endif %}><span>About</span></a>
     </li>
     <li>
